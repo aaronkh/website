@@ -37,15 +37,26 @@ const withThemeContext = Component =>
             {(contexts) => <Component {...props} {...contexts} />}
         </ThemeContext.Consumer>
 
-
+function isDark() {
+    if(localStorage.getItem('theme') === 'dark') {
+        return true
+    }
+    if(localStorage.getItem('theme') === 'light') {
+        return false
+    }
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return true
+    }
+    return false
+}
 
 class ThemeContextProvider extends React.Component {
     constructor(props) {
         super(props)
-        if(!localStorage.getItem('theme') || localStorage.getItem('theme') === 'light') {
-            this.state = DEFAULT_STATE
-        } else {
+        if(isDark()) {
             this.state = DARK_STATE
+        } else {
+            this.state = DEFAULT_STATE
         }
         this.toggleDarkMode = this.toggleDarkMode.bind(this)
     }
