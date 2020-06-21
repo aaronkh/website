@@ -1,0 +1,133 @@
+.head {
+    text-align: center;
+}
+
+.head>* {
+    margin-bottom: 6px
+}
+
+.head .contact li {
+    display: inline-flex;
+    margin-right: 8px;
+    margin-left: 8px;
+    
+}
+
+.head .contact li svg {
+    transform: translateY(2px);
+    margin-right: 4px;
+}
+
+.head #name {
+    font-size: 36px;
+    font-weight: 600
+}
+
+.contact {
+    display: flex;
+    justify-content: center;
+    padding: 8px;
+    flex-wrap: wrap;
+}
+
+#container {
+    flex-direction: column;
+    display: flex;
+    width: unset;
+    max-width: 800px;
+    /*8.5in;*/
+    height: max-content;
+    /*11in;*/
+    margin: 0 auto;
+    padding: 2rem;
+    padding-top: 1rem;
+}
+
+img {
+    height: 16px;
+    margin-right: 4px;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right
+}
+
+.section-title {
+    font-size: 24px
+}
+
+.section {
+    margin-bottom: 12px;
+}
+
+.separator-inline {
+    display: inline-block;
+    width: 1px;
+}
+
+.section-head {
+    display: flex;
+    align-items: center;
+}
+
+.section-separator {
+    height: 1px;
+    margin-top: 6px;
+    margin-left: 0.2rem;
+    flex-grow: 1
+}
+
+.stack::before {
+    content: "Stack: "
+}
+
+.technologies::before {
+    content: "Technologies: ";
+    font-weight: 800
+}
+
+.languages::before {
+    content: "Languages: ";
+    font-weight: 800
+}
+
+.item {
+    display: flex;
+    flex-direction: column
+}
+
+.item-head .title {
+    font-weight: 800;
+}
+
+.item-head {
+    margin-bottom: 4px;
+    margin-top: 12px;
+    line-height: 1.5rem
+}
+
+.right .title {
+    text-transform: lowercase
+}
+
+.description li {
+    line-height: 1.5rem;
+    margin-left: 1.5rem;
+    word-spacing: 0.15rem;
+}
+
+@media (max-width: 600px) {
+    .item-head {
+        display: block;
+    }
+    .left {
+        float: none;
+    }
+    .right {
+        float: none;
+    }
+}

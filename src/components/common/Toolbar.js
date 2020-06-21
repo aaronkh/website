@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { withRouter, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { FiArrowUp, FiShare2, FiSun, FiHome } from 'react-icons/fi'
 import { withThemeContext } from '../../state/ThemeContext'
 
@@ -13,13 +13,52 @@ home
 
 const ToolbarContainer = styled.div`
     opacity: 0.5;
+    position: absolute;
+    right: -16px;
+    display: flex;
+    top: 0;
+    flex-direction: column;
+    visibility: hidden;
+    transition: 1s;
 
-    & * {
+    & > * {
+        visibility: visible;
         cursor: pointer;
+        position: fixed;
+        padding: 0.5rem;
+        bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid ${props => props.themeContext.secondary};
+        border-radius: 3px;
+    }
+
+    & svg {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin: 0.5rem;
+        opacity: 0.5;
+        color: ${props => props.themeContext.secondary};
+    }
+
+    & svg:hover {
+        opacity: 0.9;
     }
 `
 
-const Toolbar = props =>{
+const PageUp = styled(FiArrowUp)`
+`
+
+const Share = styled(FiShare2)`
+`
+
+const Home = styled(FiHome)`
+`
+
+const ToggleDark = styled(FiSun)`
+`
+
+const Toolbar = props => {
     const history = useHistory()
     const goHome = () => history.push('/')
     const scrollTop = () => window.scrollTo({
@@ -27,12 +66,15 @@ const Toolbar = props =>{
         behavior: 'smooth'
     })
     return (
-    <ToolbarContainer {...props}>
-        <FiSun title={props.themeContext.dark? 'Light Mode':'Dark Mode'} onClick={props.themeContext.toggleDarkMode} {...props.darkProps} />
-        <FiHome title="Home" onClick={goHome} {...props.homeProps} />
-        <FiShare2 title="Share" {...props.shareProps} />
-        <FiArrowUp onClick={scrollTop} title="Back to Top" {...props.upProps} />
-    </ToolbarContainer>
-    )}
+        <ToolbarContainer {...props}>
+            <div themeContext={props.themeContext}>
+                <ToggleDark title={props.themeContext.dark ? 'Light Mode' : 'Dark Mode'} onClick={props.themeContext.toggleDarkMode} {...props.darkProps} />
+                <Home title="Home" onClick={goHome} {...props.homeProps} />
+                <Share title="Share" {...props.shareProps} />
+                <PageUp onClick={scrollTop} title="Back to Top" {...props.upProps} />
+            </div>
+        </ToolbarContainer>
+    )
+}
 
-export default withRouter(withThemeContext(Toolbar))
+export default withThemeContext(Toolbar)

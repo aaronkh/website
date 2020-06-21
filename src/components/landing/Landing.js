@@ -58,14 +58,23 @@ const LinkItem = styled(Link)`
 `
 
 const CustomizedToolbar = styled(Toolbar)`
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
-    margin: 0 auto;
-    margin-left: ${isMobile? ';': '4rem'};
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    width: max-content;
+    position: unset;
+    opacity: 0.8;
+    transition: 1s;
+    
+    & div {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        margin: 0 auto;
+        margin-left: ${isMobile? ';': '4rem'};
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        width: max-content;
+        border: none;
+        padding: 0;
+        position: unset;
+    }
 
     & svg {
         width: 2rem;
@@ -73,6 +82,8 @@ const CustomizedToolbar = styled(Toolbar)`
         padding: 2rem;
         opacity: 0.66;
         transition: 0.5s;
+        position: unset;
+        margin: 0;
         border: 1px solid ${props => props.themeContext.secondary};
         color: ${props => props.themeContext.secondary};
     }

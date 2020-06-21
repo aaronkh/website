@@ -179,17 +179,22 @@ const Back = props =>
     </BackLayout>
 
 const RotateIcon = styled(FlipArrow)`
-    position: absolute;
-    right: ${isNarrow() ? '-0.75rem' : '-2.75rem'}; bottom: -1rem;
     width: 6rem;
     height: 3rem;
-    opacity: 0;
     fill: ${props => props.themeContext.text};
-    transition: 200ms;
     transform: scaleX( -1) rotate(-110deg);
+`
+
+const RotateIconContainer = styled.div`
+    position: absolute;
+    right: ${isNarrow() ? '-0.75rem' : '-2.75rem'}; bottom: -1rem;
+    transition: 200ms;
+    opacity: 0;
+
     &.enter-appear-done {
         opacity: ${isNarrow() ? 0.9 : 0.8};
     }
+
 `
 
 const BusinessCard = props => {
@@ -221,7 +226,12 @@ const BusinessCard = props => {
                 in={true}
                 appear
                 classNames='enter'>
-                <RotateIcon alt="Flip!" themeContext={props.themeContext} />
+                    <RotateIconContainer>
+                        <RotateIcon 
+                            className="enter-appear-done" 
+                            alt="Flip!" 
+                            themeContext={props.themeContext} />
+                    </RotateIconContainer>
             </CSSTransition>
         </div>)
 }
