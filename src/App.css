@@ -2,6 +2,7 @@ body, html, #root {
   height: 100%;
   width: 100%;
   font-family: 'Lato', sans-serif;
+  scroll-behavior: smooth;
   /* 
   font-family: 'Archivo', sans-serif; 400, 700
   font-family: 'Archivo Black', sans-serif; 400

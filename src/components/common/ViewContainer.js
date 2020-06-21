@@ -4,10 +4,11 @@ import styled from 'styled-components'
 import { withThemeContext } from '../../state/ThemeContext'
 
 const FullPage = styled.div`
-    height: 100%;
+    min-height: 100%;
     width: 100%;
     background: ${props => props.themeContext.background};
-    color: ${props => props.themeContext.text}
+    color: ${props => props.themeContext.text};
+    display: flex;
 `
 
 const Inner = styled.div`
@@ -17,8 +18,8 @@ const Inner = styled.div`
 `
 
 const ViewContainer = props =>
-    <FullPage {...props}>
-        <Inner>
+    <FullPage themeContext={props.themeContext}>
+        <Inner {...props}>
             {props.children}
         </Inner>
     </FullPage>

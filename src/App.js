@@ -9,7 +9,7 @@ function App() {
     <ThemeContextProvider>
       <Router>
         <Switch>
-          <Route path="">
+          <Route path="" exact>
             <Landing />
           </Route>
           <Route path="/about">
@@ -26,6 +26,9 @@ function App() {
           </Route>
           <Route path="/resume">
 
+          </Route>
+          <Route path="/">
+            404
           </Route>
         </Switch>
       </Router>

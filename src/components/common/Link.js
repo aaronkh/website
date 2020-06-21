@@ -14,10 +14,12 @@ const External = styled.a`
         width: 110%;
         height: 0.75rem;
         bottom: 4px;
-        left: -8px;
+        left: -4px;
         background-color: ${props => props.highlight || props.themeContext.primary};
-        visibility: hidden;
-        opacity: 0;
+        visibility: ${props => props.lit ? 'inherit' : 'hidden'};
+        opacity: ${props => props.lit ? '0.25' : '0'};
+        display:inline-block;
+        white-space: nowrap;
     }
 
     &:hover::before {
@@ -55,7 +57,7 @@ const Link = props => {
         return Internal.render(Object.assign({}, props, {to: props.href, onClick: stopProp}))
     }
     else {
-        return External.render(Object.assign({}, props, {onClick: stopProp}))
+        return External.render(Object.assign({}, props, {onClick: stopProp, target: '_blank'}))
     }
 }
 

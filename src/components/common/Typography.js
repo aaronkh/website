@@ -12,10 +12,13 @@ const Subheading = styled.h2`
 
 const Text = styled.span`
     font-size: 1.2rem;
+    line-height: 2rem;
+    word-spacing: 0.2rem;
 `
 
 const LongText = styled.p`
     font-size: 1.1rem;
+    line-height: 1.5rem;
 `
 
 const Code = styled.code`

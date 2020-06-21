@@ -9,7 +9,7 @@ import { withThemeContext } from '../../state/ThemeContext'
 
 function isNarrow() {
     // less than max width
-    return window.innerWidth < 500
+    return window.innerWidth < 600
 }
 
 const Container = styled(Card)`
@@ -40,7 +40,7 @@ const Name = styled.div`
     height: ${isNarrow() ? 'unset' : '100%'};
     text-align: ${isNarrow() ? 'left' : 'center'};
     position: relative;
-    
+    width: max-content;
     & span {
         z-index: 99;
         position: relative;
@@ -80,16 +80,16 @@ const Front = props =>
             <span> Aaron Huang </span>
         </Name>
         <Links>
-            <Link target="_blank" highlight="grey" href="https://www.github.com/aaronkh">
+            <Link highlight="grey" href="https://www.github.com/aaronkh">
                 <FiGithub /><LinkText>aaronkh</LinkText>
             </Link>
-            <Link target="_blank" highlight="purple" href="mailto:aahuang@berkeley.edu">
+            <Link highlight="purple" href="mailto:aahuang@berkeley.edu">
                 <FiMail /><LinkText>aahuang@berkeley.edu</LinkText>
             </Link>
-            <Link target="_blank" highlight="green" href="tel:415-812-6317">
+            <Link highlight="green" href="tel:415-812-6317">
                 <FiPhoneCall /><LinkText>(415) 812-6317</LinkText>
             </Link>
-            <Link target="_blank" highlight="#2560AD" href="https://www.linkedin.com/in/aaronkh">
+            <Link highlight="#2560AD" href="https://www.linkedin.com/in/aaronkh">
                 <FiLinkedin /><LinkText>linkedin</LinkText>
             </Link>
         </Links>
@@ -196,7 +196,7 @@ const BusinessCard = props => {
     const [reversed, setReversed] = React.useState(false)
     const [isFlipping, setIsFlipping] = React.useState(false)
     return (
-        <>
+        <div style={{ marginBottom: '3rem' }}>
             <CSSTransition
                 timeout={1}
                 in={true}
@@ -223,7 +223,7 @@ const BusinessCard = props => {
                 classNames='enter'>
                 <RotateIcon alt="Flip!" themeContext={props.themeContext} />
             </CSSTransition>
-        </>)
+        </div>)
 }
 
 export default withThemeContext(BusinessCard)
