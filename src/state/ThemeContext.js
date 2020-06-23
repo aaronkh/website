@@ -7,10 +7,10 @@ const DEFAULT_STATE = {
     primaryDark: '#8bffff',
     secondary: '#311b92',
     secondaryLight: '#6746c3',
-    secodaryDark: '#000063',
+    secondaryDark: '#000063',
     disabled: '#555',
     text: '#212121',
-    background: '#FFFFFF',
+    background: '#fefefe',
     cardShadow: '20px 20px 60px #aaa, -20px -20px 60px #ffffff',
     cardHover: '20px 20px 60px #ccc, -20px -20px 60px #ffffff',
     cardSelected: 'inset 5px 5px 6px #e1e1e1, inset -5px -5px 6px #e1e1e1',
@@ -26,7 +26,7 @@ const DARK_STATE = Object.assign({}, DEFAULT_STATE, {
     primaryLight: '#6acdcd',
     secondary: '#c2a8eb',
     secondaryLight: '#d0bcf0',
-    secodaryDark: '#6a3bb5',
+    secondaryDark: '#6a3bb5',
 })
 
 const ThemeContext = React.createContext(DEFAULT_STATE)

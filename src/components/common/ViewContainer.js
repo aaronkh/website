@@ -13,6 +13,7 @@ const FullPage = styled.div`
 
 const Inner = styled.div`
     max-width: 1024px;
+    width: 100%;
     padding: 1rem;
     margin: 0 auto;
 `

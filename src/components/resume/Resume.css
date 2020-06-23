@@ -1,3 +1,7 @@
+.resume * {
+    transition: 0.5s;
+}
+
 .head {
     text-align: center;
 }

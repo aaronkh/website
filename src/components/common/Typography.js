@@ -18,7 +18,8 @@ const Text = styled.span`
 
 const LongText = styled.p`
     font-size: 1.1rem;
-    line-height: 1.5rem;
+    line-height: 1.75rem;
+    word-spacing: 0.2rem;
 `
 
 const Code = styled.code`
