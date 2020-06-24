@@ -28,7 +28,6 @@ function randomAssistant() {
 
 const flavorTexts = [
     'Check back later?',
-    'I-',
     'AND I OOP-',
     'Is this what they call a 404?',
     'We couldn\'t find what you\'re looking for.',
