@@ -5,6 +5,7 @@ import ViewContainer from '../common/ViewContainer'
 import { Heading, Text } from '../common/Typography'
 import { withThemeContext } from '../../state/ThemeContext'
 import ProjectCard from './ProjectCard'
+import Card from '../common/Card'
 
 const Title = styled(Heading)`
     font-family: 'Archivo Black', sans-serif;
@@ -24,21 +25,40 @@ const Subtitle = styled(Text)`
     display: block;
 `
 
-const Line = styled.div`
-    width: 100%;
-    height: 2px;
-    background: ${props => props.themeContext.text};
+const MoreContainer = styled.div`
+    margin: 0 auto;
+    width: inherit;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    display: flex;
+    justify-content: space-around;
+`
+
+const More = styled(Card)`
+    margin: 1rem;
+    width: auto;
+    background: ${props => props.themeContext.secondary};
+    color: ${props => props.themeContext.background};
+    padding: 1.25rem;
+    border-radius: 2rem;
+    opacity: 0.9;
+    text-align: center;
+    line-height: 1.5rem;
+
+    &:hover {
+        opacity: 1;
+    }
 `
 
 function getProjects() {
     return fetch('/projects_src/_')
 }
 
-const Projects = props =>{
+const Projects = props => {
     const [projects, setProjects] = React.useState([])
 
     React.useEffect(() => {
-        if(projects)
+        if (projects)
             getProjects()
                 .then(r => r.json())
                 .then(setProjects)
@@ -54,8 +74,26 @@ const Projects = props =>{
             <Subtitle>
                 A showcase of things that I've gone and done.
             </Subtitle>
-            <Line themeContext={props.themeContext} />
-            {projects.map(p => <ProjectCard key={p.url} url={p.url}/>)}
+            {projects.map(p => <ProjectCard key={p.url} url={p.url} />)}
+            <MoreContainer>
+            <More themeContext={props.themeContext}>
+                Want more? Check out my {' '}
+                <a
+                    target="_blank" rel="noopener noreferrer"
+                    style={{ textDecoration: 'underline' }}
+                    href="https://wwww.github.com/aaronkh">
+                    GitHub
+                </a>
+                {' and '}
+                <a
+                    target="_blank" rel="noopener noreferrer"
+                    style={{ textDecoration: 'underline' }}
+                    href="https://www.devpost.com/aaronkh">
+                    Devpost
+                </a>.
+            </More>
+            </MoreContainer>
         </ProjectContainer>
-)}
+    )
+}
 export default withThemeContext(Projects)

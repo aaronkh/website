@@ -15,6 +15,8 @@ const ProjectCardContainer = styled(Card)`
     padding: 2rem;
     padding-top: 3rem;
     padding-bottom: 3rem;
+    margin: 0;
+    margin-bottom: 2rem;
 `
 
 function getProject(url) {
@@ -64,6 +66,8 @@ const ProjectLinks = styled.ul`
 `
 const ProjectLink = styled(Link)`
     font-family: 'Fira Code', monospace;
+    margin-left: 1rem;
+    margin-right: 1rem;
 `
 const ProjectImage = styled.img`
     width: 100%;
@@ -108,7 +112,7 @@ const ProjectCard = props => {
     if (!data) return <div />
     return (
         <ProjectCardContainer isMobile={isMobile}>
-            <ProjectImageLink href={window.location.origin + data.photos[0].url} isMobile={isMobile}>
+            <ProjectImageLink title={data.photos[0].text} href={window.location.origin + data.photos[0].url} isMobile={isMobile}>
                 <ProjectImage src={data.photos[0].url} />
             </ProjectImageLink>
             <ProjectTextContainer isMobile={isMobile}>

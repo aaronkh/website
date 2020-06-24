@@ -57,7 +57,7 @@ const Link = props => {
         return Internal.render(Object.assign({}, props, {to: props.href, onClick: stopProp}))
     }
     else {
-        return External.render(Object.assign({}, props, {onClick: stopProp, target: '_blank'}))
+        return External.render(Object.assign({}, props, {onClick: stopProp, target: '_blank', rel: 'noopener noreferrer'}))
     }
 }
 

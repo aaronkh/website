@@ -116,7 +116,7 @@ const Landing = props => {
                         <li><LinkItem href="/projects">Projects</LinkItem></li>
                         <li><LinkItem href="/about">About</LinkItem></li>
                         <li><LinkItem href="/experiments">Experiments</LinkItem></li>
-                        <li> <LinkItem href="/blog">Blog</LinkItem></li>
+                        <li> <LinkItem href="/notes">Notes</LinkItem></li>
                     </LinkColumn>
                     <CustomizedToolbar desktopWidth={1} themeContext={props.themeContext}/>
                 </Column>
