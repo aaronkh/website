@@ -5,6 +5,7 @@ import Landing from './components/landing/Landing'
 import Resume from './components/resume/Resume'
 import { ThemeContextProvider } from './state/ThemeContext'
 import Projects from './components/projects/Projects'
+import NotFoundPage from './components/404/NotFoundPage'
 
 function App() {
   return (
@@ -30,7 +31,7 @@ function App() {
             <Resume />
           </Route>
           <Route path="/">
-            404
+            <NotFoundPage/>
           </Route>
         </Switch>
       </Router>

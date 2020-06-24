@@ -129,7 +129,7 @@ const BackPic = styled.div`
         height: inherit;
         width: inherit;
         max-width: 50%;
-        filter: ${props => props.themeContext && (`invert(${-1 * -(parseInt(props.themeContext.background.substr(1), 16) > parseInt(555555, 16))})`)};
+        filter: ${props => props.themeContext && (`invert(${props.themeContext.dark ? 0 : 1})`)};
         opacity: 0.7;
     }
 `
@@ -226,12 +226,12 @@ const BusinessCard = props => {
                 in={true}
                 appear
                 classNames='enter'>
-                    <RotateIconContainer>
-                        <RotateIcon 
-                            className="enter-appear-done" 
-                            alt="Flip!" 
-                            themeContext={props.themeContext} />
-                    </RotateIconContainer>
+                <RotateIconContainer>
+                    <RotateIcon
+                        className="enter-appear-done"
+                        alt="Flip!"
+                        themeContext={props.themeContext} />
+                </RotateIconContainer>
             </CSSTransition>
         </div>)
 }
