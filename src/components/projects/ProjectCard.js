@@ -20,7 +20,7 @@ const ProjectCardContainer = styled(Card)`
 `
 
 function getProject(url) {
-    return (fetch(`/projects_src/${url}`).then(r => r.text())).then(JSON.parse)
+    return (fetch(url).then(r => r.text())).then(JSON.parse)
 }
 
 const ProjectName = styled(Heading)`
@@ -112,8 +112,11 @@ const ProjectCard = props => {
     if (!data) return <div />
     return (
         <ProjectCardContainer isMobile={isMobile}>
-            <ProjectImageLink title={data.photos[0].text} href={window.location.origin + data.photos[0].url} isMobile={isMobile}>
-                <ProjectImage src={data.photos[0].url} />
+            <ProjectImageLink
+                title={data.photos[0].text}
+                href={process.env.REACT_APP_RELATIVE_PATH + data.photos[0].url}
+                isMobile={isMobile}>
+                <ProjectImage src={process.env.REACT_APP_RELATIVE_PATH + data.photos[0].url} />
             </ProjectImageLink>
             <ProjectTextContainer isMobile={isMobile}>
                 <ProjectName themeContext={props.themeContext}>

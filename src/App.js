@@ -6,11 +6,13 @@ import Resume from './components/resume/Resume'
 import { ThemeContextProvider } from './state/ThemeContext'
 import Projects from './components/projects/Projects'
 import NotFoundPage from './components/404/NotFoundPage'
+import Notes from './components/notes/Notes'
+import Experiments from './components/experiments/Experiments'
 
 function App() {
   return (
     <ThemeContextProvider>
-      <Router>
+      <Router basename="/website">
         <Switch>
           <Route path="/" exact>
             <Landing />
@@ -19,10 +21,10 @@ function App() {
 
           </Route>
           <Route path="/notes">
-
+            <Notes />
           </Route>
           <Route path="/experiments">
-
+            <Experiments />
           </Route>
           <Route path="/projects">
             <Projects />
@@ -31,7 +33,7 @@ function App() {
             <Resume />
           </Route>
           <Route path="/">
-            <NotFoundPage/>
+            <NotFoundPage />
           </Route>
         </Switch>
       </Router>

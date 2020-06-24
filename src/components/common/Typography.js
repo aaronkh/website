@@ -8,6 +8,7 @@ const Heading = styled.h1`
 const Subheading = styled.h2`
     font-family: 'Archivo';
     font-weight: 400;
+    line-height: 2rem;
 `
 
 const Text = styled.span`

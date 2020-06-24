@@ -51,7 +51,7 @@ const More = styled(Card)`
 `
 
 function getProjects() {
-    return fetch('/projects_src/_')
+    return fetch(process.env.REACT_APP_RELATIVE_PATH + '/projects_src/project__map')
 }
 
 const Projects = props => {
@@ -63,7 +63,7 @@ const Projects = props => {
                 .then(r => r.json())
                 .then(setProjects)
                 .catch(console.log)
-    })
+    }, [])
 
     return (
         <ProjectContainer>
@@ -74,7 +74,11 @@ const Projects = props => {
             <Subtitle>
                 A showcase of things that I've gone and done.
             </Subtitle>
-            {projects.map(p => <ProjectCard key={p.url} url={p.url} />)}
+            {projects.map(p => 
+                <ProjectCard 
+                    key={p.url} 
+                    url={process.env.REACT_APP_RELATIVE_PATH + '/projects_src/' + p.url} 
+                />)}
             <MoreContainer>
             <More themeContext={props.themeContext}>
                 Want more? Check out my {' '}

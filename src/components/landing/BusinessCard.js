@@ -168,7 +168,7 @@ const Back = props =>
             <span>front-end/mobile dev, data science, music theory, weird hackathon ideas </span>
         </BackLooking>
         <BackPic themeContext={props.themeContext}>
-            <img alt="my face" src="/face.png"></img>
+            <img alt="my face" src={`${process.env.REACT_APP_RELATIVE_PATH}/face.png`}></img>
         </BackPic>
         <BackLinks>
             <Link href='./taggged/ui' lit={true}>UI/UX</Link>

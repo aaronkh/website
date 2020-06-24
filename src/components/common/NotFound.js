@@ -8,7 +8,6 @@ const NotFoundContainer = styled.div`
     opacity: 0.6;
     margin-top: 3rem;
     margin-bottom: 3rem;
-    // border: 2px solid black;
     border-color: unset;
     border-radius: 4px;
     padding: 2rem;
@@ -40,7 +39,7 @@ const flavorTexts = [
     '/r/backrooms',
     'The new frontier!',
     '[signals that enemies are missing]',
-    `${randomAssistant()}, set a reminder me to add "${window.location.pathname}" to my website.`,
+    `${randomAssistant()}, set a reminder me to add "${(() => window.location.pathname)()}" to my website.`,
 
 ]
 
@@ -60,14 +59,14 @@ const MissingImage = styled.img`
 `
 
 const NotFound = props =>
-    <NotFoundContainer>
+    <NotFoundContainer {...props}>
         <Heading>
             Nothing here... yet
     </Heading>
         <Subheading>
             {flavorTexts[Math.floor(Math.random() * flavorTexts.length)]}
         </Subheading>
-        <MissingImage themeContext={props.themeContext} src="/404.png" alt="where content go?" />
+        <MissingImage themeContext={props.themeContext} src={`${process.env.REACT_APP_RELATIVE_PATH}/404.png`} alt="where content go?" />
         <CustomLink href="/" highlight>
             <Subheading>Take me home!</Subheading>
         </CustomLink>
