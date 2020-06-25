@@ -3,6 +3,7 @@ import { FiLinkedin, FiGithub, FiMail, FiPhoneCall } from 'react-icons/fi'
 import { withThemeContext } from '../../state/ThemeContext'
 import Toolbar from '../common/Toolbar'
 import Link from '../common/Link'
+import ScrollTop from '../common/ScrollTop'
 import './Resume.css'
 
 const Resume = props =>
@@ -10,6 +11,7 @@ const Resume = props =>
         width: '100%',
         background: props.themeContext.background
     }}>
+        <ScrollTop />
         <div id="container" style={{
             background: props.themeContext.background,
             color: props.themeContext.text

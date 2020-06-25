@@ -52,9 +52,10 @@ const Name = styled.div`
         position: absolute;
         width: 110%;
         height: 0.75rem;
-        bottom: 0px;
+        bottom: -2px;
         left: -8px;
         background-color: ${props => props.themeContext.primaryLight};
+        filter: ${props => props.themeContext.dark ? 'brightness(90%)' : ';'}
     }
 
 `

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import ScrollTop from './ScrollTop'
 import { withThemeContext } from '../../state/ThemeContext'
 
 const FullPage = styled.div`
@@ -21,6 +22,7 @@ const Inner = styled.div`
 
 const ViewContainer = props =>
     <FullPage themeContext={props.themeContext}>
+        <ScrollTop/>
         <Inner {...props}>
             {props.children}
         </Inner>
