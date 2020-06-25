@@ -8,11 +8,6 @@ import { ReactComponent as FlipArrow } from './flip-arrow.svg'
 import { withThemeContext } from '../../state/ThemeContext'
 import Face from './face.png'
 
-function isNarrow() {
-    // less than max width
-    return window.innerWidth < 600
-}
-
 const Container = styled(Card)`
     cursor: pointer;
     padding: 1.5rem;
@@ -20,7 +15,7 @@ const Container = styled(Card)`
     padding-top: 3rem;
     max-width: 500px;
     margin: 0 auto;
-    display: ${isNarrow() ? 'block' : 'flex'};
+    display: ${({isNarrow}) => isNarrow ? 'block' : 'flex'};
     align-items: flex-start;
     position: relative;
     transition: transform 100ms;
@@ -37,9 +32,9 @@ const Name = styled.div`
     font-weight: 700;
     font-size: 1.8rem;
     margin: 0.5rem;
-    margin-bottom: ${isNarrow() ? '2rem' : '0.5rem'};
-    height: ${isNarrow() ? 'unset' : '100%'};
-    text-align: ${isNarrow() ? 'left' : 'center'};
+    margin-bottom: ${({isNarrow}) => isNarrow ? '2rem' : '0.5rem'};
+    height: ${({isNarrow}) => isNarrow ? 'unset' : '100%'};
+    text-align: ${({isNarrow}) => isNarrow ? 'left' : 'center'};
     position: relative;
     width: max-content;
     & span {
@@ -67,9 +62,9 @@ const Links = styled.ul`
     margin: 0;
     font-family: 'Fira Code', monospace;
     line-height: 2rem;
-    align-items: ${isNarrow() ? 'flex-start' : 'stretch'};
-    margin-bottom: ${isNarrow() ? '1rem' : '0rem'};
-    padding-left: ${isNarrow() ? '0.5rem' : ';'};
+    align-items: ${({isNarrow}) => isNarrow ? 'flex-start' : 'stretch'};
+    margin-bottom: ${({isNarrow}) => isNarrow ? '1rem' : '0rem'};
+    padding-left: ${({isNarrow}) => isNarrow ? '0.5rem' : ';'};
 `
 
 const LinkText = styled.span`
@@ -78,10 +73,10 @@ const LinkText = styled.span`
 
 const Front = props =>
     <div style={{ display: 'inherit', visibility: props.in ? 'unset' : 'hidden' }}>
-        <Name themeContext={props.themeContext}>
+        <Name themeContext={props.themeContext} isNarrow={props.isNarrow}>
             <span> Aaron Huang </span>
         </Name>
-        <Links>
+        <Links isNarrow={props.isNarrow}>
             <Link highlight="grey" href="https://www.github.com/aaronkh">
                 <FiGithub /><LinkText>aaronkh</LinkText>
             </Link>
@@ -110,7 +105,7 @@ const BackLayout = styled.div`
     visibility: ${props => props.in ? 'unset' : 'hidden'};
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    grid-template-areas: ${isNarrow() ?
+    grid-template-areas: ${({isNarrow}) => isNarrow ?
         `"looking pic"
          "looking links"`
         :
@@ -146,9 +141,9 @@ const BackLinks = styled.div`
     grid-area: links;
     display: flex;
     justify-content: space-around;
-    padding-left: ${isNarrow() ? '2rem' : ';'};
-    align-items: ${isNarrow() ? 'flex-start' : 'center'};
-    flex-direction: ${isNarrow() ? 'column' : 'row'};
+    padding-left: ${({isNarrow}) => isNarrow ? '2rem' : ';'};
+    align-items: ${({isNarrow}) => isNarrow ? 'flex-start' : 'center'};
+    flex-direction: ${({isNarrow}) => isNarrow ? 'column' : 'row'};
 `
 
 const Enter = styled.div`
@@ -172,7 +167,7 @@ const Back = props =>
         <BackPic themeContext={props.themeContext}>
             <img alt="my face" src={Face}></img>
         </BackPic>
-        <BackLinks>
+        <BackLinks isNarrow={props.isNarrow}>
             <Link href='./taggged/ui' lit={true}>UI/UX</Link>
             <Link href='./tagged/data' lit={true}>data</Link>
             <Link href='./tagged/ml' lit={true}>ml</Link>
@@ -189,12 +184,12 @@ const RotateIcon = styled(FlipArrow)`
 
 const RotateIconContainer = styled.div`
     position: absolute;
-    right: ${isNarrow() ? '-0.75rem' : '-2.75rem'}; bottom: -1rem;
+    right: ${({isNarrow}) => isNarrow ? '-0.75rem' : '-2.75rem'}; bottom: -1rem;
     transition: 200ms;
     opacity: 0;
 
     &.enter-appear-done {
-        opacity: ${isNarrow() ? 0.9 : 0.8};
+        opacity: ${({isNarrow}) => isNarrow ? 0.9 : 0.8};
     }
 
 `
@@ -202,6 +197,14 @@ const RotateIconContainer = styled.div`
 const BusinessCard = props => {
     const [reversed, setReversed] = React.useState(false)
     const [isFlipping, setIsFlipping] = React.useState(false)
+    const [isNarrow, setIsNarrow] = React.useState(window.innerWidth < 600)
+
+    React.useEffect(() => {
+        const handleResize = () => setIsNarrow(window.innerWidth < 600)
+        window.addEventListener('resize', handleResize)
+        return window.removeEventListener('resize', handleResize)
+    }, [])
+
     return (
         <div style={{ marginBottom: '3rem' }}>
             <CSSTransition
@@ -216,9 +219,9 @@ const BusinessCard = props => {
                         in={isFlipping}
                         onEnter={() => { setIsFlipping(false) }}
                         onExited={() => setReversed(!reversed)}>
-                        <Container onClick={() => { setIsFlipping(true); props.onClick && props.onClick() }}>
-                            <Front themeContext={props.themeContext} in={!reversed} />
-                            <Back themeContext={props.themeContext} in={reversed} />
+                        <Container onClick={() => { setIsFlipping(true); props.onClick && props.onClick() }} isNarrow={isNarrow}>
+                            <Front themeContext={props.themeContext} in={!reversed} isNarrow={isNarrow} />
+                            <Back themeContext={props.themeContext} in={reversed} isNarrow={isNarrow} />
                         </Container>
                     </CSSTransition>
                 </Enter>
@@ -228,7 +231,7 @@ const BusinessCard = props => {
                 in={true}
                 appear
                 classNames='enter'>
-                <RotateIconContainer>
+                <RotateIconContainer isNarrow={isNarrow}>
                     <RotateIcon
                         className="enter-appear-done"
                         alt="Flip!"

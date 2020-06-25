@@ -7,13 +7,11 @@ import ViewContainer from '../common/ViewContainer'
 import BusinessCard from './BusinessCard'
 import Link from '../common/Link'
 import Toolbar from '../common/Toolbar'
-import {withThemeContext} from '../../state/ThemeContext'
+import { withThemeContext } from '../../state/ThemeContext'
 import SetTitle from '../common/SetTitle'
 
-let isMobile = window.innerWidth < 1024 // true around ~1000 (2 columns can't fit confortably)
-
 const LandingContainer = styled(ViewContainer)`
-    display: ${() => isMobile ? ';' : 'grid'};
+    display: ${({ isMobile }) => isMobile ? ';' : 'grid'};
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "col1 col2";
     padding-top: 2rem;
@@ -38,8 +36,9 @@ const LongDescription = styled(Text)`
     &.enter-appear-done {
         opacity: 1;
     }
+    
     & br {
-        display: ${() => isMobile ? 'none' : ';'};
+        display: ${({ isMobile }) => isMobile ? 'none' : ';'};
     }
 
     & br.special {
@@ -48,9 +47,9 @@ const LongDescription = styled(Text)`
 `
 
 const LinkColumn = styled.ul`
-    margin-left: ${() => isMobile ? '-2rem;' : '2rem'};
+    margin-left: ${({ isMobile }) => isMobile ? '-2rem;' : '2rem'};
     list-style: none;
-    margin-top: ${() => isMobile ? '1rem' : '-0.5rem;'};
+    margin-top: ${({ isMobile }) => isMobile ? '1rem' : '-0.5rem;'};
 `
 
 const LinkItem = styled(Link)`
@@ -69,7 +68,7 @@ const CustomizedToolbar = styled(Toolbar)`
         grid-template-rows: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
         margin: 0 auto;
-        margin-left: ${isMobile? ';': '4rem'};
+        margin-left: ${({ isMobile }) => isMobile ? ';' : '4rem'};
         margin-top: 2rem;
         margin-bottom: 2rem;
         width: max-content;
@@ -96,32 +95,43 @@ const CustomizedToolbar = styled(Toolbar)`
 `
 
 const Landing = props => {
+    const [isMobile, setIsMobile] = React.useState(window.innerWidth < 1024)
+    const [isLoaded, setIsLoaded] = React.useState(false)
+
+    React.useEffect(() => {
+        setTimeout(() => setIsLoaded(true), 300)
+    }, [])
+
+    React.useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 1024)
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+    }, [])
+
     return (
-        <LandingContainer>
-            <SetTitle title="Aaron Huang"/>
+        <LandingContainer isMobile={isMobile} >
+            <SetTitle title="Aaron Huang" />
             <Column style={{ gridArea: 'col1' }} className="enter-appear-done">
                 <BusinessCard />
-                <CSSTransition in={true} timeout={300} classNames="enter" appear>
-                    <LongDescription>
-                        Studying computer science @ <span title="Go bears! 🐻🐻🐻">UC Berkeley</span> c/o 2022. <br />
-                        Open to new internship opportunities. <br />
-                        Android developer and Javascript enthusiast. <br />
-                        10X+ hackathon veteran <Link href="https://devpost.com/aaronkh" lit>(devpost)</Link>. <br className="special" />
-                        Working on automated boba with <Link href="https://devinmui.github.io/" lit> @devinmui</Link>. <br />
-                        Based in the San Francisco Bay Area. 🌉
+                <LongDescription isMobile={isMobile} className={isLoaded? "enter-appear-done":""}>
+                    Studying computer science @ <span title="Go bears! 🐻🐻🐻">UC Berkeley</span> c/o 2022. <br />
+                    Open to new internship opportunities. <br />
+                    Android developer and Javascript enthusiast. <br />
+                    10X+ hackathon veteran <Link href="https://devpost.com/aaronkh" lit>(devpost)</Link>. <br className="special" />
+                    Working on automated boba with <Link href="https://devinmui.github.io/" lit> @devinmui</Link>. <br />
+                    Based in the San Francisco Bay Area. 🌉
                 </LongDescription>
-                </CSSTransition>
             </Column>
             <CSSTransition in={true} timeout={300} classNames="enter" appear>
                 <Column style={{ gridArea: 'col2' }}>
-                    <LinkColumn>
+                    <LinkColumn isMobile={isMobile} >
                         <li><LinkItem href="/resume">Resume</LinkItem></li>
                         <li><LinkItem href="/projects">Projects</LinkItem></li>
                         <li><LinkItem href="/about">About</LinkItem></li>
                         <li><LinkItem href="/experiments">Experiments</LinkItem></li>
                         <li> <LinkItem href="/notes">Notes</LinkItem></li>
                     </LinkColumn>
-                    <CustomizedToolbar desktopWidth={1} themeContext={props.themeContext}/>
+                    <CustomizedToolbar isMobile={isMobile} desktopWidth={1} themeContext={props.themeContext} />
                 </Column>
             </CSSTransition>
         </LandingContainer>)
