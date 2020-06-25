@@ -106,13 +106,24 @@ const CopiedToast = styled(Card)`
     position: fixed;
     transition: 0.25s;
     top: ${props => props.copied? '2rem':'-5rem'};
-    background: black;
-    color: white;
+    background: ${props => props.themeContext.background};
+    color: ${props => props.themeContext.text};
     padding: 1rem;
     margin: 0 auto;
     z-index: 9999;
     right: 0; left: 0;
     width: max-content;
+    overflow-x: hidden;
+
+    & .timer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: ${props => props.copied? '0': '100%'};
+        background: ${props => props.themeContext.secondaryLight};
+        height: 2px;
+        transition: 1.25s;
+    }
 `
 
 const ShareMenu = props => {
@@ -137,8 +148,9 @@ const ShareMenu = props => {
     }
     return (
         <>
-        <CopiedToast copied={copied}>
-            Text Copied!
+        <CopiedToast copied={copied} {...props}>
+            <span>Text Copied!</span>
+            <div className="timer"/>
         </CopiedToast>
         <ShareMenuContainer {...props}>
             <FacebookShareButton quote={document.title} url={window.location.toString()}>

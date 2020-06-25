@@ -18,6 +18,7 @@ const LandingContainer = styled(ViewContainer)`
     grid-template-areas: "col1 col2";
     padding-top: 2rem;
     margin: 0 auto;
+    overflow-x: visible;
 `
 
 const Column = styled.div`
