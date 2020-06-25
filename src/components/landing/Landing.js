@@ -8,6 +8,7 @@ import BusinessCard from './BusinessCard'
 import Link from '../common/Link'
 import Toolbar from '../common/Toolbar'
 import {withThemeContext} from '../../state/ThemeContext'
+import SetTitle from '../common/SetTitle'
 
 let isMobile = window.innerWidth < 1024 // true around ~1000 (2 columns can't fit confortably)
 
@@ -96,6 +97,7 @@ const CustomizedToolbar = styled(Toolbar)`
 const Landing = props => {
     return (
         <LandingContainer>
+            <SetTitle title="Aaron Huang"/>
             <Column style={{ gridArea: 'col1' }} className="enter-appear-done">
                 <BusinessCard />
                 <CSSTransition in={true} timeout={300} classNames="enter" appear>

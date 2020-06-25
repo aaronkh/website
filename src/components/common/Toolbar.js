@@ -4,7 +4,7 @@ import Headroom from 'react-headroom'
 import { useHistory } from 'react-router-dom'
 import { FiArrowUp, FiShare2, FiSun, FiHome } from 'react-icons/fi'
 import { withThemeContext } from '../../state/ThemeContext'
-
+import ShareMenu from './ShareMenu'
 /*
 share
 light mode
@@ -101,6 +101,7 @@ const PageUp = styled(FiArrowUp)`
 const Toolbar = props => {
     let desktopWidth = props.desktopWidth || 1024
     const [isMobile, setIsMobile] = React.useState(window.innerWidth < desktopWidth)
+    const [isShareMenuOpen, setIsShareMenuOpen] = React.useState(false)
 
     React.useEffect(() => {
         const handleResize = () => setIsMobile(window.innerWidth < desktopWidth)
@@ -117,26 +118,34 @@ const Toolbar = props => {
 
     if (isMobile) {
         return (
+            <>
+            <ShareMenu open={isShareMenuOpen} isMobile={true} onClose={() => setIsShareMenuOpen(false)} />
+
             <MobileToolbarContainer {...props}>
                 <Headroom disableInlineStyles themeContext={props.themeContext}>
+
                     <ToggleDark title={props.themeContext.dark ? 'Light Mode' : 'Dark Mode'} onClick={props.themeContext.toggleDarkMode} {...props.darkProps} />
                     <Home title="Home" onClick={goHome} {...props.homeProps} />
-                    <Share title="Share" {...props.shareProps} />
+                    <Share title="Share" {...props.shareProps} onClick={() => setIsShareMenuOpen(true)} />
                     <PageUp onClick={scrollTop} title="Back to Top" themeContext={props.themeContext} {...props.upProps} />
                 </Headroom>
             </MobileToolbarContainer>
+            </>
         )
     }
 
     return (
-        <ToolbarContainer {...props}>
-            <div themeContext={props.themeContext}>
-                <FiSun title={props.themeContext.dark ? 'Light Mode' : 'Dark Mode'} onClick={props.themeContext.toggleDarkMode} {...props.darkProps} />
-                <Home title="Home" onClick={goHome} {...props.homeProps} />
-                <Share title="Share" {...props.shareProps} />
-                <FiArrowUp onClick={scrollTop} themeContext={props.themeContext} title="Back to Top" {...props.upProps} />
-            </div>
-        </ToolbarContainer>
+        <>
+            <ShareMenu open={isShareMenuOpen} isMobile={false} onClose={() => setIsShareMenuOpen(false)} />
+            <ToolbarContainer {...props}>
+                <div themeContext={props.themeContext}>
+                    <FiSun title={props.themeContext.dark ? 'Light Mode' : 'Dark Mode'} onClick={props.themeContext.toggleDarkMode} {...props.darkProps} />
+                    <Home title="Home" onClick={goHome} {...props.homeProps} />
+                    <Share title="Share" {...props.shareProps} onClick={() => setIsShareMenuOpen(true)} />
+                    <FiArrowUp onClick={scrollTop} themeContext={props.themeContext} title="Back to Top" {...props.upProps} />
+                </div>
+            </ToolbarContainer>
+        </>
     )
 }
 

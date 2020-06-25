@@ -5,8 +5,7 @@ import ViewContainer from '../common/ViewContainer'
 import { Heading, Text } from '../common/Typography'
 import { withThemeContext } from '../../state/ThemeContext'
 import SetTitle from '../common/SetTitle'
-import CRT from './CRT'
-import Content from './Content'
+import NotFound from '../common/NotFound'
 
 const Title = styled(Heading)`
     font-family: 'Archivo Black', sans-serif;
@@ -14,7 +13,7 @@ const Title = styled(Heading)`
     margin-bottom: 0.5rem;
 `
 
-const ExperimentsContainer = styled(ViewContainer)`
+const NotesContainer = styled(ViewContainer)`
     text-align: left;
     & * {
         transition: 0.5s;
@@ -26,21 +25,24 @@ const Subtitle = styled(Text)`
     display: block;
 `
 
-const Experiments = props => {
+const CustomNotFound = styled(NotFound)`
+    border: 2px solid black;
+    border-color: unset;
+`
+
+const Notes = props => {
     return (
-        <ExperimentsContainer>
-            <SetTitle title="Experiments | Aaron Huang" />
+        <NotesContainer>
+            <SetTitle title="Notes | Aaron Huang"/>
             <Toolbar />
             <Title>
-                Experiments
+                About
             </Title>
             <Subtitle>
-                Interesting things to play with that may or may not work.
+                Writings, musings, and other things I felt like jotting down.
             </Subtitle>
-            <CRT>
-                <Content/>
-            </CRT>
-        </ExperimentsContainer>
+            <CustomNotFound/>
+        </NotesContainer>
     )
 }
-export default withThemeContext(Experiments)
+export default withThemeContext(Notes)

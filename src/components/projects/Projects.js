@@ -6,6 +6,7 @@ import { Heading, Text } from '../common/Typography'
 import { withThemeContext } from '../../state/ThemeContext'
 import ProjectCard from './ProjectCard'
 import Card from '../common/Card'
+import SetTitle from '../common/SetTitle'
 
 const Title = styled(Heading)`
     font-family: 'Archivo Black', sans-serif;
@@ -67,6 +68,7 @@ const Projects = props => {
 
     return (
         <ProjectContainer>
+            <SetTitle title="Projects | Aaron Huang"/>
             <Toolbar />
             <Title>
                 Projects

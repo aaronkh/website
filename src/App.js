@@ -5,6 +5,7 @@ import Landing from './components/landing/Landing'
 import Resume from './components/resume/Resume'
 import { ThemeContextProvider } from './state/ThemeContext'
 import Projects from './components/projects/Projects'
+import About from './components/about/About'
 import NotFoundPage from './components/404/NotFoundPage'
 import Notes from './components/notes/Notes'
 import Experiments from './components/experiments/Experiments'
@@ -18,7 +19,7 @@ function App() {
             <Landing />
           </Route>
           <Route path="/about">
-
+            <NotFoundPage />
           </Route>
           <Route path="/notes">
             <Notes />

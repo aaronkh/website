@@ -4,6 +4,7 @@ import Toolbar from '../common/Toolbar'
 import ViewContainer from '../common/ViewContainer'
 import { Heading, Text } from '../common/Typography'
 import { withThemeContext } from '../../state/ThemeContext'
+import SetTitle from '../common/SetTitle'
 import NotFound from '../common/NotFound'
 
 const Title = styled(Heading)`
@@ -32,6 +33,7 @@ const CustomNotFound = styled(NotFound)`
 const Notes = props => {
     return (
         <NotesContainer>
+            <SetTitle title="Notes | Aaron Huang"/>
             <Toolbar />
             <Title>
                 Notes
