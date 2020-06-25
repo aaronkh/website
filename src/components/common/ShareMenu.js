@@ -28,9 +28,7 @@ import {
     EmailShareButton
 } from 'react-share'
 import { withThemeContext } from '../../state/ThemeContext'
-const MobileShareMenuContainer = styled.div`
-
-`
+import Card from './Card'
 
 const ShareMenuContainer = styled.div`
     position: fixed;
@@ -73,7 +71,7 @@ const ShareMenuContainer = styled.div`
         margin-top: 0;
         border: 1px solid ${props => props.themeContext.secondaryDark};
         border-radius: 4rem;
-        color: ${props => props.themeContext.text};
+        color: rgba(255, 255, 255, 0.9);
         box-sizing: border-box;
         background: ${props => props.themeContext.secondaryDark};
     }
@@ -104,17 +102,44 @@ const ShareMenuContainer = styled.div`
     }
 `
 
+const CopiedToast = styled(Card)`
+    position: fixed;
+    transition: 0.25s;
+    top: ${props => props.copied? '2rem':'-5rem'};
+    background: black;
+    color: white;
+    padding: 1rem;
+    margin: 0 auto;
+    z-index: 9999;
+    right: 0; left: 0;
+    width: max-content;
+`
+
 const ShareMenu = props => {
+    const [copied, setCopied] = React.useState(false)
+
+    const copy = () => {
+        if(!copied) {
+            setCopied(true)
+            setTimeout(() => setCopied(false), 1000)
+        }
+    }
+
     if (props.open && navigator.share) {
-        return navigator.share({
+        navigator.share({
             title: document.title,
             text: document.title + ' |',
             url: window.location.toString()
         })
-            .then(props.onClose)
-            .catch(props.onClose)
+        .then(props.onClose)
+        .catch(props.onClose)
+        return (<></>)
     }
     return (
+        <>
+        <CopiedToast copied={copied}>
+            Text Copied!
+        </CopiedToast>
         <ShareMenuContainer {...props}>
             <FacebookShareButton quote={document.title} url={window.location.toString()}>
                 <FiFacebook />
@@ -146,12 +171,13 @@ const ShareMenu = props => {
             <div className="copy">
                 <span className="text">{window.location.toString()}</span>
                 <CopyToClipboard text={window.location.toString()}>
-                    <div className="button"><FiCopy /></div>
+                    <div className="button" onClick={copy}><FiCopy /></div>
                 </CopyToClipboard>
             </div>
             <div className="break" />
             <FiX onClick={props.onClose} style={{ cursor: 'pointer' }} />
         </ShareMenuContainer>
+        </>
     )
 }
 
