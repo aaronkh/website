@@ -1,11 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
+import NLS from './nls.png'
+import DevpostImage from './devpost.png'
+
 const ContentContainer = styled.div`
     box-shadow: inset -1px -1px #0a0a0a,inset 1px 1px #dfdfdf,inset -2px -2px grey,inset 2px 2px #fff;
     height: 100%;
     margin: 0 auto;
     width: 600px;
     max-width: 100%;
+    margin-top: -2px;
     background: white;
     overflow-y: scroll;
     scrollbar-face-color:silver;
@@ -23,7 +27,9 @@ const ContentTable = styled.table`
     border-collapse:collapse;
     margin: 0 auto;
     color: black;
-    
+    font-family: 'Fira Code', monospace;
+    margin-bottom: 6rem;
+
     table-layout: auto;
     & tablebody, tr {
         width: 100%;
@@ -42,6 +48,10 @@ const ContentTable = styled.table`
 
     * {
         box-sizing: border-box
+    }
+
+    & tr a {
+        word-wrap: anywhere
     }
 `
 
@@ -65,6 +75,19 @@ const Name = styled.div`
     }
 `
 
+const NameImage = styled.img`
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    height: auto;
+    opacity: 0.7
+`
+
+const NameSubtitle = styled.div`
+    font-weight: initial;
+    font-size: 0.8rem;
+`
+
 const Content = props =>
     <ContentContainer>
         <ContentTable>
@@ -82,27 +105,52 @@ const Content = props =>
                         <Name>
                             Needlessly_Long_Status
                         </Name>
+                        <NameImage src={NLS} />
+                        <NameSubtitle>Joined Feb 2020</NameSubtitle>
                     </NameColumnCell>
                     <td>
                         <p>
-                        Ever wish your League status was a long boi
+                            The League of Legends client limits the length of your status. Ever wish it was longer? Well, now it's possible.
                         </p>
                         ----------
                         <p>
-                        <b>Instructions: https://github.com/aaronkh/needlessly-long-status</b>
-
+                            <b>Instructions and download: {' '}
+                                <a href="https://github.com/aaronkh/needlessly-long-status" target="_blank" rel="noreferrer noopener">
+                                    https://github.com/aaronkh/needlessly-long-status
+                            </a>
+                            </b>
                         </p>
                     </td>
                 </tr>
                 <tr>
                     <NameColumnCell>
                         <Name>
-                        Devpost_Data
+                            Devpost_Data
                         </Name>
+                        <NameImage src={DevpostImage} />
+                        <NameSubtitle>Joined Apr 2020</NameSubtitle>
                     </NameColumnCell>
                     <td>
                         <p>
-                        Scraped collection of hackathon data from Devpost
+                            Scraped collection of 140k+ hackathon projects from Devpost. Will be used to find similarities, trends, etc.
+                        </p>
+                        ----------
+                        <p style={{ fontFamily: 'serif', lineHeight: '2rem' }}>
+                            View on Kaggle {'--> '}
+                            <a href="https://www.kaggle.com/aahuang/devpost-project-data"
+                                target="_blank"
+                                style={{ textDecoration: 'underline' }}
+                                rel="noreferrer noopener">
+                                https://www.kaggle.com/aahuang/devpost-project-data
+                            </a>
+                            <br />
+                            See the GitHub {'-->  '}
+                            <a href="https://github.com/aaronkh/devpost-data"
+                                target="_blank"
+                                style={{ textDecoration: 'underline' }}
+                                rel="noreferrer noopener">
+                                https://github.com/aaronkh/devpost-data
+                            </a>
                         </p>
                     </td>
                 </tr>

@@ -5,9 +5,10 @@ import styled from 'styled-components'
 const CRT = styled.div`
     max-width: 100%;
     margin-top: 1rem;
-    height: 30rem;
+    height: 50rem;
+    max-height: 66vh;
     border-radius: 20%/10%;
-    background: blue;
+    background: #00807F;
     &::before {
         content: " ";
         display: block;
@@ -151,7 +152,9 @@ const CRT = styled.div`
             text-shadow: 2.6208764473832513px 0 1px rgba(0,30,255,0.5), -2.6208764473832513px 0 1px rgba(255,0,80,0.3), 0 0 3px;
         }
     }
-    animation: textShadoww 1.6s infinite;
+    box-shadow: inset 20px 20px 60px #489dcf, 
+            inset -20px -20px 60px #62d5ff;
+    animation: textShadow 16s infinite;
     &::after {
         content: " ";
         display: block;
