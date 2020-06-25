@@ -6,6 +6,7 @@ import Card from '../common/Card'
 import Link from '../common/Link'
 import { ReactComponent as FlipArrow } from './flip-arrow.svg'
 import { withThemeContext } from '../../state/ThemeContext'
+import Face from './face.png'
 
 function isNarrow() {
     // less than max width
@@ -168,7 +169,7 @@ const Back = props =>
             <span>front-end/mobile dev, data science, music theory, weird hackathon ideas </span>
         </BackLooking>
         <BackPic themeContext={props.themeContext}>
-            <img alt="my face" src={`${process.env.REACT_APP_RELATIVE_PATH}/face.png`}></img>
+            <img alt="my face" src={Face}></img>
         </BackPic>
         <BackLinks>
             <Link href='./taggged/ui' lit={true}>UI/UX</Link>

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Link from './Link'
 import { Heading, Subheading } from './Typography'
 import { withThemeContext } from '../../state/ThemeContext'
+import Image from './404.png'
 
 const NotFoundContainer = styled.div`
     opacity: 0.6;
@@ -61,11 +62,11 @@ const NotFound = props =>
     <NotFoundContainer {...props}>
         <Heading>
             Nothing here... yet
-    </Heading>
+        </Heading>
         <Subheading>
             {flavorTexts[Math.floor(Math.random() * flavorTexts.length)]}
         </Subheading>
-        <MissingImage themeContext={props.themeContext} src={`${process.env.REACT_APP_RELATIVE_PATH}/404.png`} alt="where content go?" />
+        <MissingImage themeContext={props.themeContext} src={Image} alt="where content go?" />
         <CustomLink href="/" highlight>
             <Subheading>Take me home!</Subheading>
         </CustomLink>

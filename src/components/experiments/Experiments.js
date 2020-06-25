@@ -4,7 +4,8 @@ import Toolbar from '../common/Toolbar'
 import ViewContainer from '../common/ViewContainer'
 import { Heading, Text } from '../common/Typography'
 import { withThemeContext } from '../../state/ThemeContext'
-import NotFound from '../common/NotFound'
+import CRT from './CRT'
+import Content from './Content'
 
 const Title = styled(Heading)`
     font-family: 'Archivo Black', sans-serif;
@@ -24,11 +25,6 @@ const Subtitle = styled(Text)`
     display: block;
 `
 
-const CustomNotFound = styled(NotFound)`
-    border: 2px solid black;
-    border-color: unset;
-`
-
 const Experiments = props => {
     return (
         <ExperimentsContainer>
@@ -39,7 +35,9 @@ const Experiments = props => {
             <Subtitle>
                 Interesting things to play with that may or may not work.
             </Subtitle>
-            <CustomNotFound/>
+            <CRT>
+                <Content/>
+            </CRT>
         </ExperimentsContainer>
     )
 }
