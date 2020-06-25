@@ -17,7 +17,6 @@ const Inner = styled.div`
     width: 100%;
     padding: 1rem;
     margin: 0 auto;
-    overflow-x: hidden;
 `
 
 const ViewContainer = props =>

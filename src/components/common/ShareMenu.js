@@ -105,7 +105,7 @@ const ShareMenuContainer = styled.div`
 const CopiedToast = styled(Card)`
     position: fixed;
     transition: 0.25s;
-    top: ${props => props.copied? '2rem':'-5rem'};
+    top: ${props => props.copied? '2rem':'-20rem'};
     background: ${props => props.themeContext.background};
     color: ${props => props.themeContext.text};
     padding: 1rem;

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 // @source: http://aleclownes.com/2017/02/01/crt-display.html
 // thanks!
 const CRT = styled.div`
-    max-width: 100%;
+    max-width: 90%;
     margin-top: 1rem;
     height: 50rem;
     max-height: 66vh;

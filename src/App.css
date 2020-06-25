@@ -3,6 +3,7 @@ body, html, #root {
   width: 100%;
   font-family: 'Lato', sans-serif;
   scroll-behavior: smooth;
+  overflow-x: hidden;
   /* 
   font-family: 'Archivo', sans-serif; 400, 700
   font-family: 'Archivo Black', sans-serif; 400
