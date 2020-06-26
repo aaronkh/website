@@ -17,7 +17,7 @@ const Title = styled(Heading)`
 const NotesContainer = styled(ViewContainer)`
     text-align: left;
     & * {
-        transition: color 0.5s;
+        transition: color 0.5s, background 0.5s;
     }
     & a, span{
         transition: color 0s !important;

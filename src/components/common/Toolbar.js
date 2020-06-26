@@ -63,8 +63,9 @@ const ToggleDark = styled(FiSun)`
 const MobileToolbarContainer = styled.div`
     z-index: 999;
     position: fixed;
+
     & * {
-        transition: color 0s !important;
+        transition: color 0s, bottom 0.5s;
     }
     & .headroom {
         position: fixed;
@@ -101,7 +102,7 @@ const PageUp = styled(FiArrowUp)`
 
 
 const Toolbar = props => {
-    let desktopWidth = props.desktopWidth || 1024
+    let desktopWidth = props.desktopWidth || 1300
     const [isMobile, setIsMobile] = React.useState(window.innerWidth < desktopWidth)
     const [isShareMenuOpen, setIsShareMenuOpen] = React.useState(false)
 

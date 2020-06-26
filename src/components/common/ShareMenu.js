@@ -44,7 +44,7 @@ const ShareMenuContainer = styled.div`
     padding-top: 1.5rem;
     left: 0; 
     right: 0;
-    transition: 0.25s;
+    transition: bottom 0.5s;
     transition-timing-function: ease-out;
     bottom: ${props => props.open ? '1rem' : '-100vh'};
     z-index: 9999;

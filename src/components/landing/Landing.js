@@ -23,13 +23,14 @@ const Column = styled.div`
     max-width: 550px;
     opacity: 0;
     &.enter-appear-done {
-        transition: 1s;
+        transition: opacity 1s;
         opacity: 1;
     }
 `
 
 const LongDescription = styled(Text)`
     opacity: 0;
+    transition: color 1s;
     white-space: pre-line;
     position: relative;
     &.enter-appear-done {

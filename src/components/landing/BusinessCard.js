@@ -185,7 +185,7 @@ const RotateIcon = styled(FlipArrow)`
 const RotateIconContainer = styled.div`
     position: absolute;
     right: ${({ isNarrow }) => isNarrow ? '-0.75rem' : '-2.75rem'}; bottom: -1rem;
-    transition: 500ms;
+    transition:  opacity 500ms;
     opacity: 0;
 
     &.enter-appear-done {
