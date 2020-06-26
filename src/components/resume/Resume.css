@@ -1,5 +1,5 @@
 .resume * {
-    transition: 0.5s;
+    transition: background 0.5s;
 }
 
 .head {

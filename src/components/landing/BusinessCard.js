@@ -147,7 +147,7 @@ const BackLinks = styled.div`
 `
 
 const Enter = styled.div`
-    transition: 250ms;
+    transition: transform 250ms;
     transition-timing-function: ease-out;
     transform: translateY(-50vh) rotate(-15deg);
     &.enter-appear-done {

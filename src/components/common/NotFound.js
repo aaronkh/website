@@ -19,7 +19,7 @@ const NotFoundContainer = styled.div`
     transition: 0.5s;
 
     & * {
-        transition: 0.5s;
+        transition: color 0s !important;
     }
 `
 

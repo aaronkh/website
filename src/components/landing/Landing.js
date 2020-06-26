@@ -30,7 +30,6 @@ const Column = styled.div`
 
 const LongDescription = styled(Text)`
     opacity: 0;
-    transition: 1s;
     white-space: pre-line;
     position: relative;
     &.enter-appear-done {

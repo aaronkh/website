@@ -20,8 +20,9 @@ const ToolbarContainer = styled.div`
     top: 0;
     flex-direction: column;
     visibility: hidden;
-    transition: 1s;
-
+    & * {
+        transition: color 0s !important;
+    }
     & > * {
         visibility: visible;
         cursor: pointer;
@@ -62,10 +63,11 @@ const ToggleDark = styled(FiSun)`
 const MobileToolbarContainer = styled.div`
     z-index: 999;
     position: fixed;
-
+    & * {
+        transition: color 0s !important;
+    }
     & .headroom {
         position: fixed;
-        transition 0.33s;
         right: 1rem;
     }
     & .headroom--unfixed {

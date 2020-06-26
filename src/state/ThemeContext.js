@@ -62,12 +62,12 @@ class ThemeContextProvider extends React.Component {
     }
 
     toggleDarkMode() {
-        localStorage.setItem('theme', this.state.dark ? 'light' : 'dark')
         if (this.state.dark) {
             this.setState(DEFAULT_STATE)
         } else {
             this.setState(DARK_STATE)
         }
+        localStorage.setItem('theme', this.state.dark ? 'light' : 'dark')
     }
 
     render() {

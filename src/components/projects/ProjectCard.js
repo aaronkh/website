@@ -6,9 +6,7 @@ import Link from '../common/Link'
 import { Heading, LongText } from '../common/Typography'
 
 const ProjectCardContainer = styled(Card)`
-    & * {
-        transition: 0.5s;
-    }
+    & * { transition: 0s!important;}
     display: flex;
     flex-direction: ${props => props.isMobile ? 'column' : 'row'};
     align-items: stretch;
