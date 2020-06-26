@@ -115,7 +115,7 @@ const Landing = props => {
                 <BusinessCard />
                 <LongDescription isMobile={isMobile} className={isLoaded? "enter-appear-done":""}>
                     Studying computer science @ <span title="Go bears! 🐻🐻🐻">UC Berkeley</span> c/o 2022. <br />
-                    Open to new internship opportunities. <br />
+                    Open to new internship, full-time, and freelance opportunities. <br />
                     Android developer and Javascript enthusiast. <br />
                     10X+ hackathon veteran <Link href="https://devpost.com/aaronkh" lit>(devpost)</Link>. <br className="special" />
                     Working on automated boba with <Link href="https://devinmui.github.io/" lit> @devinmui</Link>. <br />

@@ -107,7 +107,7 @@ const Toolbar = props => {
         const handleResize = () => setIsMobile(window.innerWidth < desktopWidth)
         window.addEventListener('resize', handleResize)
         return () => window.removeEventListener('resize', handleResize)
-    })
+    }, [])
 
     const history = useHistory()
     const goHome = () => { history.push('/'); scrollTop() }

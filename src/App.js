@@ -19,7 +19,7 @@ function App() {
             <Landing />
           </Route>
           <Route path="/about">
-            <NotFoundPage />
+            <About />
           </Route>
           <Route path="/notes">
             <Notes />
