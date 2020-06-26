@@ -10,36 +10,33 @@ import NotFoundPage from './components/404/NotFoundPage'
 import Notes from './components/notes/Notes'
 import Experiments from './components/experiments/Experiments'
 
-function App() {
-  return (
-    <ThemeContextProvider>
-      <Router basename="/website">
-        <Switch>
-          <Route path="/" exact>
-            <Landing />
-          </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/notes">
-            <Notes />
-          </Route>
-          <Route path="/experiments">
-            <Experiments />
-          </Route>
-          <Route path="/projects">
-            <Projects />
-          </Route>
-          <Route path="/resume">
-            <Resume />
-          </Route>
-          <Route path="/">
-            <NotFoundPage />
-          </Route>
-        </Switch>
-      </Router>
-    </ThemeContextProvider>
-  )
-}
+const App = () =>
+  <ThemeContextProvider>
+    <Router basename="/website">
+      <Switch>
+        <Route path="/" exact>
+          <Landing />
+        </Route>
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="/notes">
+          <Notes />
+        </Route>
+        <Route path="/experiments">
+          <Experiments />
+        </Route>
+        <Route path="/projects">
+          <Projects />
+        </Route>
+        <Route path="/resume">
+          <Resume />
+        </Route>
+        <Route path="/">
+          <NotFoundPage />
+        </Route>
+      </Switch>
+    </Router>
+  </ThemeContextProvider>
 
 export default App;

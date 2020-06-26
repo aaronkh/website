@@ -122,12 +122,11 @@ const Toolbar = props => {
             <ShareMenu open={isShareMenuOpen} isMobile={true} onClose={() => setIsShareMenuOpen(false)} />
 
             <MobileToolbarContainer {...props}>
-                <Headroom disableInlineStyles themeContext={props.themeContext}>
-
-                    <ToggleDark title={props.themeContext.dark ? 'Light Mode' : 'Dark Mode'} onClick={props.themeContext.toggleDarkMode} {...props.darkProps} />
-                    <Home title="Home" onClick={goHome} {...props.homeProps} />
-                    <Share title="Share" {...props.shareProps} onClick={() => setIsShareMenuOpen(true)} />
-                    <PageUp onClick={scrollTop} title="Back to Top" themeContext={props.themeContext} {...props.upProps} />
+                <Headroom disableInlineStyles>
+                    <ToggleDark title={props.themeContext.dark ? 'Light Mode' : 'Dark Mode'} onClick={props.themeContext.toggleDarkMode} />
+                    <Home title="Home" onClick={goHome} />
+                    <Share title="Share" onClick={() => setIsShareMenuOpen(true)} />
+                    <PageUp onClick={scrollTop} title="Back to Top" themeContext={props.themeContext} />
                 </Headroom>
             </MobileToolbarContainer>
             </>

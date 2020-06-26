@@ -16,6 +16,9 @@ const Title = styled(Heading)`
 
 const ExperimentsContainer = styled(ViewContainer)`
     text-align: left;
+    max-width: 100vw;
+    overflow-x: hidden;
+    padding-bottom: 10rem;
     & * {
         transition: 0.5s;
     }
