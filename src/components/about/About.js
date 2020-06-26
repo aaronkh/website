@@ -55,9 +55,9 @@ const FaceImage = styled.div`
 
 
 const About = props => {
-    const [isMobile, setIsMobile] = React.useState(window.innerWidth < 1024)
+    const [isMobile, setIsMobile] = React.useState(window.innerWidth < 400)
     React.useEffect(() => {
-        const handleResize = () => setIsMobile(window.innerWidth < 1024)
+        const handleResize = () => setIsMobile(window.innerWidth < 400)
         window.addEventListener('resize', handleResize)
         return () => window.removeEventListener('resize', handleResize)
     }, [])
