@@ -4,6 +4,7 @@ import styled from 'styled-components'
 // thanks!
 const CRT = styled.div`
     max-width: 90%;
+    margin: 0 auto;
     margin-top: 1rem;
     height: 50rem;
     max-height: 66vh;

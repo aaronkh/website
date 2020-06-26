@@ -16,7 +16,8 @@ const Title = styled(Heading)`
 
 const ExperimentsContainer = styled(ViewContainer)`
     text-align: left;
-    max-width: 100vw;
+    align-self: center;
+    margin: 0 auto;
     overflow-x: hidden;
     padding-bottom: 10rem;
     & * {
