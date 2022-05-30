@@ -2,10 +2,9 @@ import styled from "styled-components";
 import { withThemeContext } from "../../context/ThemeContext";
 
 const Container = styled.svg`
-display: block;
-  margin-left: 24px;
-  margin-right: 24px;
-  margin-bottom: ${({height}) => `-${height/4}px`}
+  display: block;
+  margin-top: ${({ height }) => `${height / 4}px`};
+  margin-bottom: ${({ height }) => `-${height / 4}px`};
 `;
 
 const Title = ({ color, themeContext, size, children, width, style }) => {
@@ -23,7 +22,7 @@ const Title = ({ color, themeContext, size, children, width, style }) => {
         y="50%"
         x="50%"
         textLength={_width}
-        fontSize={_height * 0.7}
+        fontSize={_height * 0.66}
         textAnchor="middle"
         strokeWidth="2"
         fontWeight="bold"

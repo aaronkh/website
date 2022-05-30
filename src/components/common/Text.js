@@ -1,19 +1,29 @@
 import styled from "styled-components";
 import { withThemeContext } from "../../context/ThemeContext";
 
-const H1 = styled.h1`
-  color: red;
-`;
+const H1 = styled.h1``;
 
 const H2 = styled.h2`
-    line-height: 32px;
+  line-height: 32px;
 `;
 
-const H3 = styled.h3``;
+const H3 = styled.h3`
+  font-size: 1.4rem;
+`;
 
 const H4 = styled.h4``;
 
-const P = styled.p``;
+const P = styled.p`
+  line-height: 1.75rem;
+  font-size: 1.2rem;
+  word-spacing: 0.05rem;
+  margin-top: 1rem;
+
+  & a {
+    border-bottom: 2px dashed black;
+    border-bottom-color: unset;
+  }
+`;
 
 const Code = styled.span`
   font-family: "Roboto Mono", monospace;
