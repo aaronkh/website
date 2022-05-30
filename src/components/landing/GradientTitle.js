@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import Title from "../common/Title";
 import styled from "styled-components";
 import { withThemeContext } from "../../context/ThemeContext";
 
@@ -22,7 +21,7 @@ const GradientTitle = ({ style, color, down, children, themeContext }) => {
       setSize({ width: window.innerWidth, height: window.innerHeight });
     window.addEventListener("resize", fn);
     return () => window.removeEventListener("resize", fn);
-  }, [window.innerHeight, window.innerWidth]);
+  }, []);
 
   const _height = Math.min(size.height / 2.3, size.width * 0.3);
   const _width = Math.min(size.width, _height * children.length * 0.66);

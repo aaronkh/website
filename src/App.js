@@ -5,9 +5,11 @@ import Test from "./screens/Test";
 import styled from "styled-components";
 import { withThemeContext } from "./context/ThemeContext";
 import About from "./screens/About";
+import NotFound from "./screens/NotFound";
 
 const Base = styled.div`
   background: ${(props) => props.background};
+  transition: 0.25s;
   width: inherit;
   flex: 1;
   min-height: 100%;
@@ -22,7 +24,7 @@ function App(props) {
           <Route path="/" element={<Landing />} />
           <Route path="/about" element={<About />} />
           <Route path="/test" element={<Test />} />
-          <Route path="*" element={<div>404</div>} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
     </Base>

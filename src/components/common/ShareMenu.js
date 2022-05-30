@@ -43,6 +43,7 @@ const ShareMenuContainer = styled.div`
   padding-top: 1.5rem;
   left: 0;
   right: 0;
+  transition: 0.25s;
   bottom: ${(props) => (props.open ? "2rem" : "-100vh")};
   z-index: 9999;
   background: ${(props) => props.themeContext.background};
@@ -68,7 +69,7 @@ const ShareMenuContainer = styled.div`
     margin-top: 0;
     border: 1px solid ${(props) => props.themeContext.text};
     border-radius: 4px;
-    color: rgba(255, 255, 255, 0.9);
+    color: ${(props) => props.themeContext.text};
     box-sizing: border-box;
     background: ${(props) => props.themeContext.background};
   }

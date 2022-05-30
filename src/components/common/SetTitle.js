@@ -1,7 +1,7 @@
 import React from "react";
-export default function ({ title }) {
+const SetTitle = ({ title }) =>
   React.useEffect(() => {
     document.title = title;
-  }, []);
-  return null;
-}
+  }, [title]);
+
+export default SetTitle

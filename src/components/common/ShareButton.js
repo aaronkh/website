@@ -19,7 +19,7 @@ const ShareButton = ({ style, size }) => {
   return (
     <div>
       <FiShare2 style={style} onClick={toggleOpen} size={size} />
-      <ShareMenu open={open} onClose={() => setOpen(false)} />
+      <ShareMenu open={open} onClose={toggleOpen} />
     </div>
   );
 };

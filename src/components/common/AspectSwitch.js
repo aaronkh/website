@@ -11,8 +11,7 @@ const AspectSwitch = ({ tall, wide }) => {
     const fn = handleResize(setRatio);
     window.addEventListener("resize", fn);
     return () => window.removeEventListener("resize", fn);
-  }, [window.innerHeight, window.innerWidth]);
-  console.log(ratio)
+  }, []);
   return ratio > 0.25336 ? tall : wide;
 };
 

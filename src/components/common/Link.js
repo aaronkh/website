@@ -4,7 +4,10 @@ import { withThemeContext } from "../../context/ThemeContext";
 
 const External = styled.a`
   position: relative;
-  z-index: 99;
+  outline: 0;
+  color: inherit;
+  text-decoration: none;
+
   &::before {
     z-index: -1;
     content: "";
@@ -23,7 +26,10 @@ const External = styled.a`
 
 const Internal = styled(RouterLink)`
   position: relative;
-  z-index: 99;
+  outline: 0;
+  color: inherit;
+  text-decoration: none;
+
   &::before {
     z-index: -1;
     content: "";
@@ -40,12 +46,13 @@ const Internal = styled(RouterLink)`
   }
 `;
 
-const Link = ({ to, highlight, themeContext, children }) => {
+const Link = ({ to, highlight, themeContext, children, className }) => {
   const stopProp = (e) => e.stopPropagation();
   const isInternal = to.startsWith(".") || to.startsWith("/");
   const props = {
     children,
     to,
+    className,
     highlight: highlight ? themeContext.primary : "transparent",
   };
   if (isInternal) {
