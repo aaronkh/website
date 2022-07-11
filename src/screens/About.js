@@ -20,7 +20,7 @@ const About = () => (
       people to use. I care a lot (sometimes excessively) about user experience
       and frontend design. With 4+ years of experience with Node.js, React,
       HTML/CSS/JS, and Python, most of what I build is for the web (though I've
-      been delving into
+      been delving into {' '}
       <Link to="https://www.github.com/aaronkh/learn_tf">
         ML with TensorFlow recently
       </Link>
@@ -30,12 +30,12 @@ const About = () => (
       When I'm not in class or otherwise too busy, you can catch me at
       hackathons, in the practice rooms, or making something in the kitchen.
       Right now, I'm working on Bach's Fugue in C Major as well as perfecting my
-      own (quarantine) bread recipe. You might also find me playing
+      own (quarantine) bread recipe. You might also find me playing {' '}
       <Link to="https://na.op.gg/summoner/userName=Ieaverbuster">
         League of Legends
-      </Link>
-      late at night or
-      <Link to="https://musescore.com/user/34990711">transcribing music</Link>
+      </Link> {' '}
+      late at night or {' '}
+      <Link to="https://musescore.com/user/34990711">transcribing music</Link> {' '}
       that's been stuck in my head.
     </DescriptionParagraph>
     <DescriptionParagraph>

@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { withThemeContext } from "./context/ThemeContext";
 import About from "./screens/About";
 import NotFound from "./screens/NotFound";
+import Notes from "./screens/Notes";
 
 const Base = styled.div`
   background: ${(props) => props.background};
@@ -23,6 +24,7 @@ function App(props) {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/about" element={<About />} />
+          <Route path="/notes/*" element={<Notes />} />
           <Route path="/test" element={<Test />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
