@@ -15,7 +15,8 @@ const External = styled.a`
     width: 101%;
     height: 33%;
     bottom: 10%;
-    background-color: transparent;
+    opacity: 0.6;
+    background-color: ${props => props.alwaysHighlight? props.highlight : 'transparent'};
   }
   &:hover::before {
     visibility: inherit;
@@ -37,23 +38,24 @@ const Internal = styled(RouterLink)`
     width: 101%;
     height: 33%;
     bottom: 10%;
-    background-color: transparent;
+    opacity: 0.6;
+    background-color: ${props => props.alwaysHighlight? props.highlight : 'transparent'};
   }
   &:hover::before {
     visibility: inherit;
-    opacity: 0.6;
     background-color: ${(props) => props.highlight};
   }
 `;
 
-const Link = ({ to, highlight, themeContext, children, className }) => {
+const Link = ({ to, highlight, alwaysHighlight, themeContext, children, className }) => {
   const stopProp = (e) => e.stopPropagation();
   const isInternal = to.startsWith(".") || to.startsWith("/");
   const props = {
     children,
     to,
     className,
-    highlight: highlight ? themeContext.primary : "transparent",
+    highlight: highlight || alwaysHighlight ? themeContext.primary : "transparent",
+    alwaysHighlight: alwaysHighlight || false
   };
   if (isInternal) {
     return Internal.render(props);

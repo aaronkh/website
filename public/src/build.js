@@ -32,24 +32,28 @@ async function buildNotes() {
     fs.mkdirSync(path.resolve(__dirname, '..', 'build', 'notes'), { recursive: true })
     const paths = await walk(path.resolve(__dirname, 'notes'))
     for (const p of paths) {
-        if (!p.endsWith('.json')) continue
+        if (!p.endsWith('.json') && !p.endsWith('.md')) continue
         const data = fs.readFileSync(p)
-        fs.writeFileSync(path.resolve(__dirname, '..', 'build', 'notes', path.parse(p).base), data, {flag: 'w+'})
+        fs.writeFileSync(path.resolve(__dirname, '..', 'build', 'notes', path.parse(p).base), data, { flag: 'w+' })
+        if (p.endsWith('.md')) continue
         const json = JSON.parse(data)
-        titles[json.title] = p
+        const linkPath = path.join('notes', path.parse(p).base.replace('.json', '')).split(path.sep).join(path.posix.sep)
+        console.log(linkPath)
+        titles[json.title] = linkPath
 
-        for (const tag in json.tags) {
+        for (const tag of json.tags) {
             if (tag in tags) {
-                tags[tag].push(p)
+                tags[tag].push(linkPath)
             } else {
-                tag[tags] = [p]
+                tags[tag] = [linkPath]
             }
         }
         const month = (new Date(json.timestamp * 1000)).toISOString().substring(0, 7)
+        const m = { path: linkPath, title: json.title }
         if (month in months) {
-            months[month].push(p)
+            months[month].push(m)
         } else {
-            months[month] = [p]
+            months[month] = [m]
         }
     }
     fs.writeFileSync(path.resolve(__dirname, '..', 'build', 'notes', '__tags.json'), JSON.stringify(tags))
