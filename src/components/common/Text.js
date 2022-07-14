@@ -1,28 +1,28 @@
 import styled from "styled-components";
 import { withThemeContext } from "../../context/ThemeContext";
 
-const H1 = styled.h1``;
+const H1 = styled.h1`
+  font-size: 2.2rem;
+  line-height: 3rem;
+`;
 
 const H2 = styled.h2`
-  line-height: 32px;
+  font-size: 1.6rem;
+  line-height: 40px;
+  margin-bottom: 8px;
 `;
 
 const H3 = styled.h3`
-  font-size: 1.4rem;
+  font-size: 1.3rem;
 `;
 
 const H4 = styled.h4``;
 
 const P = styled.p`
-  line-height: 1.75rem;
-  font-size: 1.2rem;
+  line-height: 1.8rem;
+  font-size: 1.1rem;
   word-spacing: 0.05rem;
-  margin-top: 1rem;
-
-  & a {
-    border-bottom: 2px dashed black;
-    border-bottom-color: unset;
-  }
+  margin-top: 0.75rem;
 `;
 
 const Code = styled.span`

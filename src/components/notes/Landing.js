@@ -39,7 +39,7 @@ const Content = styled.div`
 
 const Header = styled.div`
     margin-bottom: 16px;
-    margin-top: 8px;
+    // margin-top: 8px;
     grid-column: 2 / 4;
     grid-row: 1;
 `
@@ -65,7 +65,7 @@ const Landing = ({ tall, fetchJSON, fetchedData }) => {
                             <Code>{stringify(splitDate(k))}</Code>
                         </Link>
                     </SectionTitle>
-                    {v.map(({ title, path }) =>
+                    {Array.isArray(v) && v.map(({ title, path }) =>
                         <ItemTitle key={path}>
                             <Link to={'/' + path}>{title}</Link>
                         </ItemTitle>)}

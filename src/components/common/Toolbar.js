@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom"
 
 const TallToolbarContainer = styled.div`
     display: flex;
+    position: fixed;
     border: 1px solid  ${({ themeContext }) => themeContext.secondary};
     background: ${({ themeContext }) => themeContext.background};
     transition: 0.2s;
@@ -115,11 +116,13 @@ const Toolbar = props => {
 
     return <>
         <ShareMenu open={isShareOpen} onClose={() => setIsShareOpen(false)} />
-        <AspectSwitch
-            tall={
-                <TallToolbar {...props} {...functions} />}
-            wide={
-                <WideToolbar {...props} {...functions} />} />
+        {props.alwaysOpen ?
+            <TallToolbar {...props} {...functions} style={{ border: '0px solid transparent' }} /> :
+            <AspectSwitch
+                tall={
+                    <TallToolbar {...props} {...functions} />}
+                wide={
+                    <WideToolbar {...props} {...functions} />} />}
     </>
 }
 

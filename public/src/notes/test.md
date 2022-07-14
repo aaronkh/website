@@ -1,4 +1,3 @@
-# Artemis
 _Let’s go into web design blind. Let’s Code in the Dark._
 
 * [Download for VS Code](https://marketplace.visualstudio.com/items?itemName=aaronkh.coding-in-the-dark)
@@ -35,7 +34,7 @@ Coding in the Dark is built from a variety of components including:
 * Node.js
 
 ## Challenges we ran into
-![](https://media.giphy.com/media/kfLPQJRuivFwqGBxp3/giphy.gif)
+![alt text test](https://media.giphy.com/media/kfLPQJRuivFwqGBxp3/giphy.gif)
 1. Setting up the web sockets
 2. Spectator chat interface (gotta brush up on those CSS skills)
 3. What is this React you speak of?

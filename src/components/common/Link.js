@@ -7,6 +7,8 @@ const External = styled.a`
   outline: 0;
   color: inherit;
   text-decoration: none;
+  border-bottom: 2px dashed black;
+  border-bottom-color: ${({ underline }) => underline ? 'unset' : 'transparent'};
 
   &::before {
     z-index: -1;
@@ -16,7 +18,7 @@ const External = styled.a`
     height: 33%;
     bottom: 10%;
     opacity: 0.6;
-    background-color: ${props => props.alwaysHighlight? props.highlight : 'transparent'};
+    background-color: ${props => props.alwaysHighlight ? props.highlight : 'transparent'};
   }
   &:hover::before {
     visibility: inherit;
@@ -30,6 +32,8 @@ const Internal = styled(RouterLink)`
   outline: 0;
   color: inherit;
   text-decoration: none;
+  border-bottom: 2px dashed black;
+  border-bottom-color: ${({ underline }) => underline ? 'unset' : 'transparent'};
 
   &::before {
     z-index: -1;
@@ -39,7 +43,7 @@ const Internal = styled(RouterLink)`
     height: 33%;
     bottom: 10%;
     opacity: 0.6;
-    background-color: ${props => props.alwaysHighlight? props.highlight : 'transparent'};
+    background-color: ${props => props.alwaysHighlight ? props.highlight : 'transparent'};
   }
   &:hover::before {
     visibility: inherit;
@@ -47,10 +51,11 @@ const Internal = styled(RouterLink)`
   }
 `;
 
-const Link = ({ to, highlight, alwaysHighlight, themeContext, children, className }) => {
+const Link = ({ to, highlight, alwaysHighlight, themeContext, children, className, underline }) => {
   const stopProp = (e) => e.stopPropagation();
-  const isInternal = to.startsWith(".") || to.startsWith("/");
+  const isInternal = to.startsWith(".") || to.startsWith("/") || to.startsWith('#');
   const props = {
+    underline,
     children,
     to,
     className,

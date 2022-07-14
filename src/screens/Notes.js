@@ -8,25 +8,24 @@ import _Toolbar from '../components/common/Toolbar'
 
 const Container = styled.div`
     display: grid;
-    grid-template-rows: repeat(${({ tall }) => tall ? 3 : 3}, fit-content(0));
+    grid-template-rows: repeat(3, fit-content(0));
     grid-template-columns: repeat(${({ tall }) => tall ? 1 : 4}, 1fr);
     column-gap: 16px;
     min-height: 100%;
-    height: 300vh;
     position: relative;
 `
 
 const Toolbar = styled(_Toolbar)`
     grid-column: 1;
-    grid-row: 1;
-    align-self: end;
+    grid-row: 1 / -1;
     justify-self: end;
+    align-self: start;
     z-index: 999;
-    ${({tall, offset}) => tall? '': `transform: translateY(${offset}px)`};
-    position: ${({ tall }) => tall ? 'fixed' : 'static'};
+
+    ${({ tall, offset }) => tall ? '' : `transform: translateY(${offset}px)`};
 `
 
-const DESKTOP_TOOLBAR_HEIGHT = 280 // TODO: Fix this hack
+const DESKTOP_TOOLBAR_HEIGHT = 275 // TODO: Fix this hack
 
 const Inner = ({ tall }) => {
     const [toolbarOffset, setToolbarOffset] = React.useState(window.innerHeight + window.scrollY - DESKTOP_TOOLBAR_HEIGHT)
@@ -43,7 +42,7 @@ const Inner = ({ tall }) => {
         <Routes>
             <Route path="/">
                 <Route index element={<Landing tall={tall} />} />
-                <Route path=":permalink" element={<Note />} />
+                <Route path=":permalink" element={<Note tall={tall} />} />
                 <Route path="tagged/:tag" />
                 <Route path="date/:date" />
             </Route>
