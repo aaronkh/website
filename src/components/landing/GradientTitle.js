@@ -30,7 +30,7 @@ const GradientTitle = ({ style, color, down, children, themeContext }) => {
   for (let i = 0; i < 4; ++i) {
     const newStyle = {};
     if (down) {
-      newStyle.transform = `translateY(${i * 5}%)`;
+      newStyle.transform = `translateY(${-10 + i * 5}%)`;
       newStyle.opacity = Math.pow(0.5, i);
     } else {
       newStyle.transform = `translateY(${-5 + i * 5}%)`;

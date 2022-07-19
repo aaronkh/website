@@ -28,6 +28,7 @@ const Title = ({ color, themeContext, size, children, width, style }) => {
         fontWeight="bold"
         stroke={color || themeContext.primary}
         fontFamily="Poppins"
+        style={{transform: 'translateY(5%)'}}
       >
         {children}
       </text>

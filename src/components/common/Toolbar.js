@@ -5,12 +5,10 @@ import { FiArrowUp, FiShare2, FiSun, FiHome, FiMoon } from 'react-icons/fi'
 import { withThemeContext } from "../../context/ThemeContext"
 import AspectSwitch from "./AspectSwitch"
 import ShareMenu from "./ShareMenu"
-import { useNavigate } from "react-router-dom"
 
 const TallToolbarContainer = styled.div`
     display: flex;
     position: fixed;
-    border: 1px solid  ${({ themeContext }) => themeContext.secondary};
     background: ${({ themeContext }) => themeContext.background};
     transition: 0.2s;
 
@@ -66,7 +64,7 @@ const WideToolbarContainer = styled.div`
         opacity: 1;
         box-shadow: -4px 4px 0px 0px ${({ themeContext }) => themeContext.secondary}
     }
-    * {
+    > * {
         cursor: pointer;
         padding: 16px;
         font-size: 24px;
@@ -81,7 +79,7 @@ const ToolbarInner = (props) => <>
     {props.themeContext.dark ?
         <FiSun title='Light Mode' onClick={props.themeContext.toggleDarkMode} /> :
         <FiMoon title='Dark Mode' onClick={props.themeContext.toggleDarkMode} />}
-    <FiHome title="Home" onClick={props.goHome} />
+    <a href="/"><FiHome title="Home"></FiHome></a>
     <FiShare2 title="Share" onClick={props.openShare} />
     <FiArrowUp onClick={props.scrollTop} themeContext={props.themeContext} title="Back to Top" />
 </>
@@ -102,12 +100,10 @@ const WideToolbar = (props) =>
 
 const Toolbar = props => {
     const [isShareOpen, setIsShareOpen] = React.useState(false)
-    const navigate = useNavigate()
 
     const functions = {
         openShare: () => setIsShareOpen(!isShareOpen),
         toggleDark: () => props.themeContext.toggleDarkMode(),
-        goHome: () => navigate('/'),
         scrollTop: () => window.scrollTo({
             top: 0, behavior:
                 "smooth"
@@ -117,7 +113,7 @@ const Toolbar = props => {
     return <>
         <ShareMenu open={isShareOpen} onClose={() => setIsShareOpen(false)} />
         {props.alwaysOpen ?
-            <TallToolbar {...props} {...functions} style={{ border: '0px solid transparent' }} /> :
+            <TallToolbar {...props} {...functions} /> :
             <AspectSwitch
                 tall={
                     <TallToolbar {...props} {...functions} />}

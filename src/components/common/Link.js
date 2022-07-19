@@ -53,7 +53,7 @@ const Internal = styled(RouterLink)`
 
 const Link = ({ to, highlight, alwaysHighlight, themeContext, children, className, underline }) => {
   const stopProp = (e) => e.stopPropagation();
-  const isInternal = to.startsWith(".") || to.startsWith("/") || to.startsWith('#');
+  const isInternal = !to.startsWith("http") // TODO: better matching
   const props = {
     underline,
     children,
