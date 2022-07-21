@@ -17,7 +17,7 @@ const DARK_STATE = Object.assign({}, DEFAULT_STATE, {
     text: 'rgba(250, 250, 250, 0.95)',
     textHint: 'rgba(250, 250, 250, 0.6)',
     disabled: 'rgba(250, 250, 250, 0.3)',
-    background: '#222',
+    background: '#202020',
 })
 
 const ThemeContext = React.createContext(DEFAULT_STATE)

@@ -1,13 +1,13 @@
 import { useEffect } from 'react'
 import styled from 'styled-components'
 import { withFetchContext } from '../../context/FetchContext'
-import { splitDate, stringify } from '../../util/DateUtil'
 import Link from '../common/Link'
 import SetTitle from '../common/SetTitle'
 import { Code, H1, H3, P } from '../common/Text'
 import Title from '../common/Title'
 import _Toolbar from '../common/Toolbar'
 import ProjectSummary from './ProjectSummary'
+import _SeeMore from './SeeMore'
 
 const Right = styled.div`
     display: none; /* TODO */
@@ -46,6 +46,10 @@ const Header = styled.div`
     }
 `
 
+const SeeMore = styled(_SeeMore)`
+
+`
+
 const Landing = ({ tall, fetchJSON, fetchedData }) => {
     useEffect(() => {
         (async () => {
@@ -71,6 +75,7 @@ const Landing = ({ tall, fetchJSON, fetchedData }) => {
                         <ProjectSummary path={v} />
                     </Section>
             ) : ''}
+            <SeeMore />
         </Content>
         <Right tall={tall}>
             right

@@ -42,7 +42,7 @@ const Inner = ({ tall }) => {
         <Routes>
             <Route path="/">
                 <Route index element={<Landing tall={tall} />} />
-                <Route path="/:permalink" element={<Project tall={tall} />} />
+                <Route path=":permalink" element={<Project tall={tall} />} />
                 <Route path="tagged/:tag" />
                 <Route path="date/:date" />
             </Route>
