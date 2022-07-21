@@ -24,7 +24,7 @@ const SectionTitle = styled(H1)`
 `
 
 const Section = styled.div`
-    margin-bottom: 24px;
+    margin-bottom: 64px;
     padding-left: ${({ tall }) => tall ? 16 : 0}px;
     padding-right: ${({ tall }) => tall ? 16 : 0}px; 
 `
@@ -47,7 +47,7 @@ const Header = styled.div`
 `
 
 const SeeMore = styled(_SeeMore)`
-
+    margin-top: 5rem;
 `
 
 const Landing = ({ tall, fetchJSON, fetchedData }) => {
@@ -58,10 +58,10 @@ const Landing = ({ tall, fetchJSON, fetchedData }) => {
     }, [])
 
     return <>
-        <SetTitle title="Aaron Huang | Projects" />
+        <SetTitle title="Projects | Aaron Huang" />
         <Header tall={tall}>
             <Title>Projects</Title>
-            <P>A showcase of things that I've gone and done.</P>
+            <P>Some of the things that I've gone and done.</P>
         </Header>
         <Content tall={tall}>
             {fetchedData.json ? Object.entries(fetchedData.json).map(
@@ -72,7 +72,7 @@ const Landing = ({ tall, fetchJSON, fetchedData }) => {
                                 <Code>{k}</Code>
                             </Link>
                         </SectionTitle>
-                        <ProjectSummary path={v} />
+                        <ProjectSummary path={v} tall={tall}/>
                     </Section>
             ) : ''}
             <SeeMore />

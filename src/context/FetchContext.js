@@ -19,7 +19,7 @@ class FetchContextProvider extends React.Component {
     }
 
     clearData() {
-        this.setState({})
+        this.setState(null)
         try {
             this.abortController.abort()
         } catch (_) { }

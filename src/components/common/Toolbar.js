@@ -5,6 +5,7 @@ import { FiArrowUp, FiShare2, FiSun, FiHome, FiMoon } from 'react-icons/fi'
 import { withThemeContext } from "../../context/ThemeContext"
 import AspectSwitch from "./AspectSwitch"
 import ShareMenu from "./ShareMenu"
+import Link from "./Link"
 
 const TallToolbarContainer = styled.div`
     display: flex;
@@ -79,7 +80,7 @@ const ToolbarInner = (props) => <>
     {props.themeContext.dark ?
         <FiSun title='Light Mode' onClick={props.themeContext.toggleDarkMode} /> :
         <FiMoon title='Dark Mode' onClick={props.themeContext.toggleDarkMode} />}
-    <a href="/"><FiHome title="Home"></FiHome></a>
+    <Link to="/"><FiHome title="Home"></FiHome></Link>
     <FiShare2 title="Share" onClick={props.openShare} />
     <FiArrowUp onClick={props.scrollTop} themeContext={props.themeContext} title="Back to Top" />
 </>

@@ -50,9 +50,9 @@ const Landing = ({ tall, fetchJSON, fetchedData }) => {
             await fetchJSON('/build/notes/__months.json')
         })()
     }, [])
-
+    console.log(fetchedData)
     return <>
-        <SetTitle title="Aaron Huang | Notes" />
+        <SetTitle title="Notes | Aaron Huang" />
         <Header>
             <Title>Notes</Title>
             <P>Writings, musings, and other things I felt like jotting down.</P>

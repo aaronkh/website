@@ -31,10 +31,10 @@ async function build(dir) {
     fs.mkdirSync(path.resolve(__dirname, '..', 'build', dir), { recursive: true })
     const paths = await walk(path.resolve(__dirname, dir))
     for (const p of paths) {
-        if (!p.endsWith('.json') && !p.endsWith('.md')) continue
+        if (!p.endsWith('.json') && !p.endsWith('.md') && !p.endsWith(".jpg")) continue
         const data = fs.readFileSync(p)
         fs.writeFileSync(path.resolve(__dirname, '..', 'build', dir, path.parse(p).base), data, { flag: 'w+' })
-        if (p.endsWith('.md')) continue
+        if (p.endsWith('.md') || p.endsWith('.jpg')) continue
         const json = JSON.parse(data)
         const linkPath = path.join(dir, path.parse(p).base.replace('.json', '')).split(path.sep).join(path.posix.sep)
         console.log(linkPath)
@@ -47,7 +47,9 @@ async function build(dir) {
                 tags[tag] = [linkPath]
             }
         }
-        const month = (new Date(json.timestamp * 1000)).toISOString().substring(0, 7)
+        let month = 1
+        if (json.timestamp)
+            month = (new Date(json.timestamp * 1000)).toISOString().substring(0, 7)
         const m = { path: linkPath, title: json.title }
         if (month in months) {
             months[month].push(m)

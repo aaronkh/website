@@ -4,18 +4,23 @@ import Link from '../common/Link'
 import _Markdown from '../common/Markdown'
 
 const Container = styled.div`
+    &::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
 `
 
 const Image = styled.img`
     float: left;
     width: 33%;
-    margin-right: 16px;
+    margin-right: ${({tall}) => tall? 16:32}px;
 `
 
 const Markdown = styled(_Markdown)`
 `
 
-const ProjectSummary = ({ path }) => {
+const ProjectSummary = ({ path, tall }) => {
     const [preview, setPreview] = React.useState('')
     const [summary, setSummary] = React.useState('')
     const [tags, setTags] = React.useState([])
@@ -29,10 +34,11 @@ const ProjectSummary = ({ path }) => {
             setTags(json.tags)
         })()
     }, [path])
-    
+
     return (
         <Container >
-            <Link to={'/' + path}><Image src={preview} />
+            <Link to={'/' + path}>
+                <Image src={'/build/' + preview} tall={tall} />
                 <Markdown>{summary}</Markdown>
                 <Link to={'/' + path} highlight>(Read more...)</Link>
             </Link>
