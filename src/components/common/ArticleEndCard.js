@@ -22,7 +22,11 @@ const Name = styled(H2)`
 const ArticleEndCard = (props) => <Container {...props}>
     <Image src="/face.png"/>
     <Link to="/about"><Code><Name>Aaron Huang</Name></Code></Link>
-    <P>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</P>
+    <P>
+        SWE at Google Nest, UC Berkeley Alum (CS c/o '22). Focused on writing sustainable code, making creative things, and figuring out how the world works.
+        <br/> 
+        All opinions expressed are my own and have not been forcefully altered in any way.
+    </P>
 </Container>
 
 export default ArticleEndCard
