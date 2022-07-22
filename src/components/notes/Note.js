@@ -8,6 +8,7 @@ import SetTitle from '../common/SetTitle'
 import { withThemeContext } from '../../context/ThemeContext'
 import { splitDate, stringify } from '../../util/DateUtil'
 import ArticleEndCard from '../common/ArticleEndCard'
+import ScrollTop from '../common/ScrollTop'
 
 const Container = styled.div`
     grid-row: 3;
@@ -87,6 +88,7 @@ const Note = ({ fetchText, fetchJSON, tall }) => {
     }, [metadata])
 
     return (<>
+        <ScrollTop />
         <SetTitle title={metadata.title + ' | Aaron Huang'} />
         <TitleSection tall={tall}>
             <Title>{metadata.title}</Title>

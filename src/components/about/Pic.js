@@ -22,9 +22,7 @@ const FaceImage = styled(Image)`
 const Pic = () => (
   <PicContainer>
     <FaceImage
-      src={
-        "https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg"
-      }
+      src={"/pfp.jpg"}
     />
   </PicContainer>
 );

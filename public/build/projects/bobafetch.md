@@ -1,3 +1,7 @@
+![A Lego prototype](/build/projects/bobafetch.jpg)
+
+*Originally published on [Devpost](https://devpost.com/software/bobafetch)*
+
 ## Inspiration
 
 Boba Tea: a drink beloved by many, and one of the few treats broke college students regularly splurge on. The drink itself is straightforward: tapioca pearls in flavored tea. The price tag, however, is not.
@@ -65,3 +69,8 @@ It works!!! We learned SQL over the weekend. Developed sorta-stable FSM and sock
 - ???
 - Profit
 
+## Links
+* [Hackster](https://www.hackster.io/bobafetch/lego-boba-fetch-an-automated-boba-barista-powered-by-lego-4a886a)
+* [Devpost](https://devpost.com/software/bobafetch)
+* [GitHub](https://github.com/jaiveersingh1/CalHacks6.0-robot)
+* [YouTube](https://www.youtube.com/watch?v=9_RSG5sKX9Q&t=855s)

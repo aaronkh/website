@@ -6,6 +6,7 @@ import { H1 } from '../common/Text'
 import Markdown from '../common/Markdown'
 import SetTitle from '../common/SetTitle'
 import ArticleEndCard from '../common/ArticleEndCard'
+import ScrollTop from '../common/ScrollTop'
 
 const Container = styled.div`
     grid-row: 3;
@@ -49,12 +50,12 @@ const Project = ({ fetchText, fetchJSON, tall }) => {
 
 
     React.useEffect(() => {
-        console.log(permalink)
         fetchText(`/build/projects/${permalink}.md`).then(setMarkdown)
         fetchJSON(`/build/projects/${permalink}.json`).then(setMetadata)
     }, [permalink])
-
+console.log(`/build/projects/${permalink}.md`)
     return (<>
+        <ScrollTop/>
         <SetTitle title={metadata.title + ' | Aaron Huang'} />
         <TitleSection tall={tall}>
             <Title>{metadata.title}</Title>
