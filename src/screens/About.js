@@ -7,8 +7,9 @@ import Pic from "../components/about/Pic";
 import { H3 } from "../components/common/Text";
 import SetTitle from "../components/common/SetTitle";
 import _Toolbar from "../components/common/Toolbar";
+import ScrollTop from '../components/common/ScrollTop';
 
-const Link = props => <LinkImport {...props} underline/>
+const Link = props => <LinkImport {...props} underline />
 
 const Toolbar = styled(_Toolbar)`
   z-index: 22
@@ -16,6 +17,7 @@ const Toolbar = styled(_Toolbar)`
 
 const About = () => (
   <>
+    <ScrollTop />
     <FullLayout>
       <SetTitle title="About | Aaron Huang" />
       <Title>About</Title>
@@ -29,13 +31,12 @@ const About = () => (
         people to use. I care a lot (sometimes excessively) about user experience
         and design. With 6+ years of experience with Node.js, React,
         HTML/CSS/JS, and Python, most of what I build is for the web (though I've
-        been delving into lower-level and embedded programming recently
-        ).
+        been delving into lower-level and embedded programming recently).
       </DescriptionParagraph>
       <DescriptionParagraph>
         When I'm not at work or otherwise too busy, you can catch me at
         hackathons, exploring the city, or making something in the kitchen.
-        You might also find me playing {' '}
+        You might also find me dining at Taco Bell, playing {' '}
         <Link to="https://na.op.gg/summoner/userName=Ieaverbuster">
           League of Legends
         </Link> {' '}

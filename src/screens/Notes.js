@@ -5,6 +5,7 @@ import AspectSwitch from '../components/common/AspectSwitch'
 import Landing from '../components/notes/Landing'
 import Note from '../components/notes/Note'
 import _Toolbar from '../components/common/Toolbar'
+import ScrollTop from '../components/common/ScrollTop'
 
 const Container = styled.div`
     display: grid;
@@ -37,17 +38,20 @@ const Inner = ({ tall }) => {
         return () => window.removeEventListener('scroll', f)
     }, [window.innerHeight])
 
-    return (<Container tall={tall}>
-        <Toolbar tall={tall} offset={toolbarOffset} />
-        <Routes>
-            <Route path="/">
-                <Route index element={<Landing tall={tall} />} />
-                <Route path="/:permalink" element={<Note tall={tall} />} />
-                <Route path="tagged/:tag" />
-                <Route path="date/:date" />
-            </Route>
-        </Routes>
-    </Container>)
+    return (<>
+        <ScrollTop />
+        <Container tall={tall}>
+            <Toolbar tall={tall} offset={toolbarOffset} />
+            <Routes>
+                <Route path="/">
+                    <Route index element={<Landing tall={tall} />} />
+                    <Route path="/:permalink" element={<Note tall={tall} />} />
+                    <Route path="tagged/:tag" />
+                    <Route path="date/:date" />
+                </Route>
+            </Routes>
+        </Container>
+    </>)
 }
 const Notes = () => <AspectSwitch tall={<Inner tall />} wide={<Inner />} />
 

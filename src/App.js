@@ -8,6 +8,7 @@ import About from "./screens/About";
 import NotFound from "./screens/NotFound";
 import Notes from "./screens/Notes";
 import Projects from "./screens/Projects";
+import Resume from "./screens/Resume";
 
 const Base = styled.div`
   background: ${(props) => props.background};
@@ -27,6 +28,7 @@ function App(props) {
           <Route path="/about" element={<About />} />
           <Route path="/notes/*" element={<Notes />} />
           <Route path="/projects/*" element={<Projects />} />
+          <Route path="/resume" element={<Resume />} />
           <Route path="/test" element={<Test />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
