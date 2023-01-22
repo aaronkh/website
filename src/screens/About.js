@@ -24,7 +24,7 @@ const About = () => (
       <H3>Hi, I'm Aaron.</H3>
       <Pic />
       <DescriptionParagraph>
-        I'm an SWE working with the Google Nest team. I recently graduated from the {' '}
+        I'm was a SWE working with the Google Nest team. I recently graduated from the {' '}
         <span title="UC🅱">University of California, Berkeley</span>{' '}
         with a Bachelors in Computer Science and a minor in Music. I enjoy writing
         software, expressing creativity through code, and building things for
