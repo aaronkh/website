@@ -15,7 +15,7 @@ const Landing = () => (
     <SetTitle title="Aaron Huang" />
     <Container>
       <Title>
-        The <a href="https://www.github.com/aaronkh/website">author of this website</a>{' '}
+        The <a href="https://github.com/aaronkh/website/tree/job-hunt">author of this website</a>{' '}
         is looking for a good job.
       </Title>
       <Socials />
