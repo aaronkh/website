@@ -7,7 +7,7 @@ const Resume = () => {
     React.useEffect(() => {
         window.open(pdf, '_self')
         navigate('/')
-    }, [])
+    }, [navigate])
     return <div/>    
 }
 export default Resume

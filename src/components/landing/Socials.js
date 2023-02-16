@@ -1,13 +1,11 @@
 import {
   FiGithub,
   FiMail,
-  FiInstagram,
+  // FiInstagram,
   FiPhone,
   FiLinkedin,
 } from "react-icons/fi";
 import styled from "styled-components";
-import { Code } from "../common/Text";
-import _Link from "../common/Link";
 
 const linkData = [
   {
@@ -30,18 +28,21 @@ const linkData = [
     icon: FiLinkedin,
     to: "https://www.linkedin.com/in/aaronkh",
   },
-  {
-    name: "ig.aahuang",
-    icon: FiInstagram,
-    to: "https://www.instagram.com/@ig.aahuang",
-  },
+  // {
+  //   name: "ig.aahuang",
+  //   icon: FiInstagram,
+  //   to: "https://www.instagram.com/@ig.aahuang",
+  // },
 ];
 
 const LinkContainer = styled.div`
-  font-size: 1.3rem;
-  line-height: 2rem;
+  font-size: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  line-height: 2.2rem;
   display: inline-block;
   margin-left: 16px;
+  margin-right: 16px;
   white-space: nowrap;
   font-weight: bold;
 
@@ -49,20 +50,26 @@ const LinkContainer = styled.div`
     margin-bottom: -2px;
     margin-right: 8px;
   }
+  
+  a {
+    text-decoration: none
+  }
 `;
 
 const Link = ({ name, icon, to, style }) => (
   <LinkContainer style={style}>
-    <Code>
-      <_Link to={to} highlight>
-        {icon()}
-        {name}
-      </_Link>
-    </Code>
+    <a href={to}>
+      {icon()}
+    </a>
   </LinkContainer>
 );
 
-const Container = styled.div``;
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: inherit
+`;
 
 const Socials = ({ style, itemStyle }) => (
   <Container style={style}>

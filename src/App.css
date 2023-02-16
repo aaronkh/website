@@ -1,12 +1,7 @@
-.screen * {
-  transition: 0.25s;
-}
-
 div {
   position: relative
 }
 
 a {
   color: inherit;
-  text-decoration: inherit;
 }

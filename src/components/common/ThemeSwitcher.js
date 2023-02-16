@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const FiSun = styled(_FiSun)`
   cursor: pointer;
-  opacity: 0.6;
+  opacity: 0.4;
   &:hover {
     opacity: 1;
   }

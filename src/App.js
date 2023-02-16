@@ -1,13 +1,8 @@
 import "./App.css";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Landing from "./screens/Landing";
-import Test from "./screens/Test";
 import styled from "styled-components";
 import { withThemeContext } from "./context/ThemeContext";
-import About from "./screens/About";
-import NotFound from "./screens/NotFound";
-import Notes from "./screens/Notes";
-import Projects from "./screens/Projects";
 import Resume from "./screens/Resume";
 
 const Base = styled.div`
@@ -24,13 +19,8 @@ function App(props) {
     <Base {...props.themeContext}>
       <Router>
         <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/notes/*" element={<Notes />} />
-          <Route path="/projects/*" element={<Projects />} />
+          <Route path="/" element={<Landing />} exact/>
           <Route path="/resume" element={<Resume />} />
-          <Route path="/test" element={<Test />} />
-          <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
     </Base>
