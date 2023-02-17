@@ -21,7 +21,7 @@ const Landing = () => (
       <Socials />
       <List>
         <ListItem>
-          Ex-Google, ex-Amazon, Berkeley alumni
+          Ex-Google, ex-Amazon, Berkeley graduate c/o 2022
         </ListItem>
         <ListItem>
           Looking for software engineering roles <Link to="/resume">(resume)</Link>
